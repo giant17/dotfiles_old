@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Start various programs for X Window Server
+
+req() {
+	for var in "$@"; do
+		command -v "$var" > /dev/null || echo "$var not installed." && exit 1 ;}
+
+req gnome-keyring setbg sxhkd xcape xset unclutter xcompmgr dunst
+
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+setbg &
+sxhkd &
+setxkbmap it -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+xmodmap -e 'keycode 135 = Super_R' &
+xset r rate 300 50 &
+unclutter &
+xcompmgr &
+dunst &
+#xrdb ~/.Xresources &
+#wal -R &
+#redshift &
+
