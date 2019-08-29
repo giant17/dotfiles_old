@@ -5,9 +5,10 @@
 
 
 
-export PATH="$PATH:$HOME/.local/bin:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$HOME/.local/bin:$(du $HOME/scripts/* | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="termite"
 export BROWSER="qutebrowser"
 export SUDO_ASKPASS="$HOME/.scripts/dmenu/pass.sh"
 export READER="zathura"
@@ -20,7 +21,14 @@ export PYTHONPATH="$HOME/.local/bin/python:${PYTHONPATH}:$HOME/.scripts/python"
 export BIB="$HOME/documents/latex/bibliography.bib"
 export TEXMFHOME="$HOME/.config/texmf"
 export XDG_CONFIG_HOME="$HOME/.config"
+export TASKRC="$HOME/.config/taskwarrior/taskrc"
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+PANEL_WM_NAME=bspwm_panel
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
 
+source $HOME/.cache/wal/colors.sh
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 # mpd > /dev/null 2>&1 &
 
