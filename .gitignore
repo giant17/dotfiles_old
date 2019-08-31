@@ -6,3 +6,6 @@ qutebrowser/.config/qutebrowser/bookmarks/
 calcurse/.config/calcurse/apts
 calcurse/.config/calcurse/todo
 qutebrowser/.config/qutebrowser/quickmarks
+vifm/.config/vifm/scripts/
+vifm/.config/vifm/vifm-help.txt
+vifm/.config/vifm/vifminfo

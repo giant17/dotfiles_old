@@ -1,7 +1,7 @@
 #!/bin/sh
 error() { notify-send " ERROR" "$1"; exit 1;}
 
-url=$1
+url=$2
 
 while getopts 'avp:' OPTION; do
   case "$OPTION" in
