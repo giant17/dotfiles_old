@@ -1,3 +1,8 @@
 vim/.config/nvim/plugged/
 vim/.config/nvim/.netrwhist
 abook/.config/abook/addressbook
+newsboat/.config/newsboat/urls
+qutebrowser/.config/qutebrowser/bookmarks/
+calcurse/.config/calcurse/apts
+calcurse/.config/calcurse/todo
+qutebrowser/.config/qutebrowser/quickmarks
