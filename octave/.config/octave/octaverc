@@ -1,0 +1,30 @@
+%graphics_toolkit("gnuplot")
+%set(gcf,'InvertHardCopy','off')
+octave_core_file_name (".octave-workspace")
+addpath('~/scripts/octave')
+set(0,'defaultfiguremenubar','none');
+
+background = hex2rgb('#1d2021');
+foreground = hex2rgb('#d5c4a1');
+number0=hex2rgb('#1d2021')
+number1=hex2rgb('#fb4934')
+number2=hex2rgb('#b8bb26')
+number3=hex2rgb('#fabd2f')
+number4=hex2rgb('#83a598')
+number5=hex2rgb('#d3869b')
+number6=hex2rgb('#8ec07c')
+number7=hex2rgb('#d5c4a1')
+number8=hex2rgb('#665c54')
+number9=hex2rgb('#fb4934')
+number10=hex2rgb('#b8bb26')
+number11=hex2rgb('#fabd2f')
+number12=hex2rgb('#83a598')
+number13=hex2rgb('#d3869b')
+number14=hex2rgb('#8ec07c')
+number15=hex2rgb('#fbf1c7')
+
+set(0,'defaultfigurecolor', background); % background figure
+set(0,'defaultaxescolor', background); % bacground plot
+set(0, "defaultlinecolor", foreground);
+set(0, "defaultaxescolororder", [number2;number3;number4;number5;number6;number7;number8])
+
