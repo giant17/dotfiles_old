@@ -1,0 +1,4 @@
+snippet init "Initialize crontab job" b
+* * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.profile; $HOME/scripts/cron/${1:script} > $HOME/.logs/$1.logs 2>&1
+$0
+endsnippet

@@ -1,0 +1,57 @@
+snippet init "Script [INIT]ialize" b
+#!/bin/sh
+
+# ${1:DESCRIPTION}
+
+$0
+endsnippet
+
+snippet err "[E]rror function" b
+error() { notify-send " ERROR" "\$1"; exit 1;}
+$0
+endsnippet
+
+snippet int "[I]nternet check" b
+internet() { ping -q -c 1 1.1.1.1 > /dev/null || exit ;}
+$0
+endsnippet
+
+snippet req "[REQ]uire" b
+require() {	ifinstalled $1 ;}
+$0
+endsnippet
+
+snippet dpr "[D]menu [PR]ompt" b
+dprompt() { printf "\$1" | dmenu -i -p "\$2" ;}
+$0
+endsnippet
+
+snippet chf "[CH]eck [F]ile" b
+find$1() { [ -f \$${1:FilePath} ] || error "$1 file not found." ;}
+$0
+endsnippet
+
+snippet chv "[CH]eck [V]ariable" b
+find$1() { [ -z ${${1:Variable}+x} ] && error "$1 variable not found." ;}
+$0
+endsnippet
+
+snippet chve "[CH]eck [V]ariable [E]mpty" b
+find$1() { [ -z ${1:Variable} ] && error "$1 variable not found or empty" ;}
+$0
+endsnippet
+
+snippet grp "[GR]e[P]"
+grep -Fxq ${1:Query} ${2:FilePath}
+endsnippet
+
+snippet func "[FUNC]tion" b
+${1:FunctionName}() {
+	$0
+;}
+endsnippet
+
+snippet prompt "[PROMPT] Dmenu" b
+prompt() { [ "$(printf "No\\nYes" | dmenu.sh -i -p "\$1")" = "Yes" ] && \$2 ;}
+$0
+endsnippet
