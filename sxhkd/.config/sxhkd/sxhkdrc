@@ -1,0 +1,56 @@
+# terminal emulator
+super + Return
+	$TERMINAL
+
+# program launcher
+super + d
+	dmenu_run.sh
+
+# execute apps
+super + w
+	notify-send "Starting Browser..." -t 1000  && $BROWSER
+
+super  + F1
+	new_app.sh
+
+# File manager
+super + r
+	$TERMINAL -e vifmrun
+
+super + n
+	$TERMINAL -e newsboat
+
+super + y
+	inbox.sh
+
+# Reload config
+super + F2
+	reload.sh
+super + F6
+	torwrap.sh
+super + shift + Escape
+	killXorg.sh
+super + grave
+	getUnicode.sh
+super + F9
+	mount.sh
+super + F10
+	unmount.sh
+super + Print
+	record.sh
+super + F12
+	wal_choose.sh
+shift + Print
+	maimpick.sh
+super + F3
+	monitor.sh
+
+# Volume
+
+XF86AudioMute
+	volume.sh mute
+XF86AudioLowerVolume
+	volume.sh down
+XF86AudioRaiseVolume
+	volume.sh up
+
