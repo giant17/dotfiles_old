@@ -40,7 +40,7 @@ someday() {
 
 
 nonActionable() {
-	nonActionableOption=$(dprompt "Quit\\nArchive\\n\\nSomeday\\nDelete" "$countTodo $descTodo")
+	nonActionableOption=$(dprompt "Quit\\nArchive\\nSomeday\\nDelete" "$countTodo $descTodo")
 	case $nonActionableOption in
 		"Archive") archive;;
 		"Someday") someday;;
@@ -51,19 +51,19 @@ nonActionable() {
 
 singleTask() {
 
-	[ -z "$1" ] || descTodo=$1
+	# [ -z "$1" ] || descTodo=$1
 
 	listCategories=$(task _projects | awk '{sub(/\./," ")}1 {print$1}' | uniq)
 	listProjects=$(task _projects | awk '{sub(/\./," ")}1 {for (i=2; i<=NF; i++) print $i}' | uniq)
 
-	[ -z "$1" ] && nameTask=$(dprompt "	Quit\\n$descTodo" "$descTodo - Name?")
-	[ -z "$2" ] && projectTask=$(dprompt "Quit\\n$listProjects" "$nameTask - Project?")
+	# [ -z "$1" ] && nameTask=$(dprompt "	Quit\\n$descTodo" "$descTodo - Name?")
+	# [ -z "$2" ] && projectTask=$(dprompt "Quit\\n$listProjects" "$nameTask - Project?")
+	nameTask=$(dprompt "	Quit\\n$descTodo" "$descTodo - Name?")
+	projectTask=$(dprompt "Quit\\n$listProjects" "$nameTask - Project?")
 
-	ext $nameTask
 	ext $projectTask
-
-	nameTask="$1"
-	projectTask="$2"
+	ext $nameTask
+	# nameTask="$1" projectTask="$2"
 
 	priorityTask=$(dprompt "Quit\\nH\\nM\\nL" "$nameTask - Priority?")
 	categoryTask=$(dprompt "Quit\\n$listCategories" "$nameTask - Category?")
@@ -76,15 +76,17 @@ singleTask() {
 	contextTask=$(dprompt "Quit\n$(task _tags | awk '/^@/')" "$nameTask - Context?")
 	ext $contextTask
 
-	task add priority:$priorityTask project:"$categoryTask.$projectTask" tag:$contextTask "$nameTask" annotate "$noteTask"
+	task add priority:$priorityTask project:"$categoryTask.$projectTask" tag:$contextTask "$nameTask"
+	newId=$(task ids | awk '{sub(/-/," ")}1 {print$2}')
+	task $newId annotate "$noteTask"
 	task del $todoID ;}
 
-project() {
-	nameProject=$(dprompt "Quit\\n$descTodo" "Name of the project?")
-	ext $nameProject
-	addTask=$(dprompt "Quit\\n$descTodo" "$nameProject - What's the Next Action?")
-	ext $addTask
-	singleTask "$addTask" "$nameProject" ;}
+# project() {
+# 	nameProject=$(dprompt "Quit\\n$descTodo" "Name of the project?")
+# 	ext $nameProject
+# 	addTask=$(dprompt "Quit\\n$descTodo" "$nameProject - What's the Next Action?")
+# 	ext $addTask
+# 	singleTask "$addTask" "$nameProject" ;}
 
 delegate() {
 	singleTask
@@ -116,7 +118,7 @@ singleTaskProcess() {
 		notify-send "DO IT " "$descTodo"; exit 1
 	fi
 
-	actionType=$(dprompt "Quit\\nDelegate\\nCalendar\\nNext" "Choose an action:")
+	actionType=$(dprompt "Quit\\nNext\\nDelegate\\nCalendar" "Choose an action:")
 	ext $actionType
 	case $actionType in
 		"Delegate") delegate ;;
@@ -125,14 +127,14 @@ singleTaskProcess() {
 		"*") error "Option not available."
 	esac
 	task del $todoID ;}
-actionable() {
-	isProject=$(dprompt "Quit\\nNo\\nYes" "$countTodo $descTodo - Is there more than 1 action required?")
-	ext $isProject
-	case $isProject in
-		"Yes") project;;
-		"No") singleTaskProcess;;
-		"*") error "Option not available.";;
-	esac ;}
+# actionable() {
+# 	isProject=$(dprompt "Quit\\nNo\\nYes" "$countTodo $descTodo - Is there more than 1 action required?")
+# 	ext $isProject
+# 	case $isProject in
+# 		"Yes") project;;
+# 		"No") singleTaskProcess;;
+# 		"*") error "Option not available.";;
+# 	esac ;}
 
 for todoID in $listIds; do
 	countTodo=$(printf "$listIds" | wc -l)
@@ -140,7 +142,7 @@ for todoID in $listIds; do
 	isActionable=$(dprompt "Quit\\nYes\\nNo" "$countTodo $descTodo - Is it actionable?")
 	ext $isActionable
 	case $isActionable in
-		"Yes") actionable;;
+		"Yes") singleTaskProcess;;
 		"No") nonActionable ;;
 		"*") error "Option not available.";;
 	esac
