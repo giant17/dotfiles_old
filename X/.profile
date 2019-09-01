@@ -21,7 +21,6 @@ export PYTHONPATH="$HOME/.local/bin/python:${PYTHONPATH}:$HOME/.scripts/python"
 export BIB="$HOME/documents/latex/bibliography.bib"
 export TEXMFHOME="$HOME/.config/texmf"
 export XDG_CONFIG_HOME="$HOME/.config"
-export TASKRC="$HOME/.config/taskwarrior/taskrc"
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=24
 PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"

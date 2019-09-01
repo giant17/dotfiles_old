@@ -5,22 +5,22 @@
 alias v="nvim" \
 	g="git" \
 	in="task add +in" \
-	tt="task -in" \
+	tt="task -in -someday" \
+	ti="task inbox" \
 	install="sudo apt-get install" \
 	cre="crontab -e" \
 	mg="nvim -c MagitOnly" \
 	tw="nvim -c TW" \
 	wd="nvim -c VimwikiMakeDiaryNote" \
 	wal="wal --vte" \
-	dmenu_run='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"' \
-	dmenu='dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"' \
 	z='zathura' \
 	SS='sudo systemctl' \
 	ls='ls --color=auto' \
 	duck='sr duckduckgo' \
 	pirate='pirate-get -t' \
 	cal='calcurse -D ~/.config/calcurse' \
-	gp='git push origin master'
+	gp='git push origin master' \
+	f='vifmrun'
 
 
 
