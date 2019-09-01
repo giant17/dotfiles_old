@@ -4,7 +4,7 @@
 
 error() { notify-send " ERROR" "$1"; exit 1;}
 require() {	ifinstalled xrandr arandr ;}
-WM_CONFIG=$HOME/.config/bspwm/bspwmrc
+# WM_CONFIG=$HOME/.config/bspwm/bspwmrc
 findWM_CONFIG() { [ -f $WM_CONFIG ] || error "WM_CONFIG file not found." ;}
 dprompt() { printf "$1" | dmenu -i -p "$2" ;}
 setMonitor() {
@@ -29,7 +29,7 @@ getChoice() {
 
 restartConfig() {
 	# Reload config
-	sh $WM_CONFIG
+	# sh $WM_CONFIG
 	setbg
 	remaps
 	pgrep -x dunst >/dev/null
@@ -38,7 +38,7 @@ restartConfig() {
 
 
 require
-findWM_CONFIG
+# findWM_CONFIG
 getMonitors
 getChoice
 restartConfig
