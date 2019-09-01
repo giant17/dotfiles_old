@@ -4,8 +4,8 @@
 
 alias v="nvim" \
 	g="git" \
-	in="task add +in" \
-	tt="task -in -someday" \
+	in="task add +inbox" \
+	tt="task -inbox -someday" \
 	ti="task inbox" \
 	install="sudo apt-get install" \
 	cre="crontab -e" \

@@ -19,7 +19,7 @@ config.set('content.javascript.enabled', True, 'file://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 c.url.searchengines = {
-        'DEFAULT': 'https://duckduckgo.com/?q={}'
+        'DEFAULT': 'https://duckduckgo.com/?q={}',
         "g": "https://www.google.it/search?q={}",
          "r": "https://reddit.com/r/{}",
         'stp': 'https://www.startpage.com/do/dsearch?query={}',
