@@ -17,3 +17,4 @@ taskwarrior/.config/taskwarrior/taskrc
 ncmpcpp/.config/mpd/state
 ncmpcpp/.config/mpd/sticker.sql
 ncmpcpp/.config/ncmpcpp/error.log
+taskwarrior/file./
