@@ -9,7 +9,7 @@ while getopts 'avp:' OPTION; do
 
       FILENAME=$(youtube-dl --get-filename -o "%(title)s." $url)
 	  tsp notify-send "🎵 Download started." "$FILENAME"
-	  tsp youtube-dl --add-metadata -ic -f bestaudio/best -o '~/%(upload_date)s-%(title)s.%(ext)s' $url
+	  tsp youtube-dl --add-metadata -ic -f bestaudio/best -o '~/downloads/%(upload_date)s-%(title)s.%(ext)s' $url
 	  tsp notify-send "🎵 Download complete." "$FILENAME"
       ;;
 
@@ -17,7 +17,7 @@ while getopts 'avp:' OPTION; do
     v)
       FILENAME=$(youtube-dl --get-filename -o "%(title)s." $url)
 	  tsp notify-send " Download started." "$FILENAME"
-	  tsp youtube-dl --add-metadata -ic -o '~/%(upload_date)s-%(title)s' $url
+	  tsp youtube-dl --add-metadata -ic -o '~/downloads/%(upload_date)s-%(title)s' $url
 	  tsp notify-send " Downloading complete." "$FILENAME"
 	  ;;
 
