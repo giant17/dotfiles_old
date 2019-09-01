@@ -10,7 +10,7 @@
 
 error() { notify-send " ERROR" "$1"; exit 1;}
 require() {	ifinstalled taskwarrior ;}
-dprompt() { printf "$1" | dmenu.sh -i -p "$2" ;}
+dprompt() { printf "$1" | dmenu.sh -i -l 20 -p "$2" ;}
 ext() {
 	if [[ "$1" == "Quit" ]]; then
 		notify-send "Exiting" ; exit 1
@@ -33,18 +33,24 @@ archive() {
 
 someday() {
 	# Add task to a someday list
-	newSomeday=$(dprompt "Quit\\n$descTodo" "Add new Someday todo:")
+	newSomeday=$(dprompt "$descTodo\\nQuit" "Add new Someday todo:")
 	ext $newSomeday
 	task add +someday $newSomeday
 	task del $todoID ;}
 
+book() {
+	nameBook=$(dprompt "$descTodo\\nQuit" "Book name:")
+	ext $nameBook
+	task add +someday +book $nameBook
+	task del $todoID ;}
 
 nonActionable() {
-	nonActionableOption=$(dprompt "Quit\\nArchive\\nSomeday\\nDelete" "$countTodo $descTodo")
+	nonActionableOption=$(dprompt "Archive\\nBook\\nSomeday\\nDelete\\nQuit" "$countTodo $descTodo")
 	case $nonActionableOption in
 		"Archive") archive;;
 		"Someday") someday;;
 		"Delete") task del $todoID;;
+		"Book") book;;
 		"Quit") exit ;;
 		"*") error "Option not available.";;
 	esac ;}
@@ -58,22 +64,22 @@ singleTask() {
 
 	# [ -z "$1" ] && nameTask=$(dprompt "	Quit\\n$descTodo" "$descTodo - Name?")
 	# [ -z "$2" ] && projectTask=$(dprompt "Quit\\n$listProjects" "$nameTask - Project?")
-	nameTask=$(dprompt "	Quit\\n$descTodo" "$descTodo - Name?")
-	projectTask=$(dprompt "Quit\\n$listProjects" "$nameTask - Project?")
+	nameTask=$(dprompt "$descTodo\\nQuit" "$descTodo - Name?")
+	projectTask=$(dprompt "\\n$listProjects\\nQuit" "$nameTask - Project?")
 
 	ext $projectTask
 	ext $nameTask
 	# nameTask="$1" projectTask="$2"
 
-	priorityTask=$(dprompt "Quit\\nH\\nM\\nL" "$nameTask - Priority?")
-	categoryTask=$(dprompt "Quit\\n$listCategories" "$nameTask - Category?")
+	priorityTask=$(dprompt "\\nH\\nM\\nL\\nQuit" "$nameTask - Priority?")
+	categoryTask=$(dprompt "$listCategories\\nQuit" "$nameTask - Category?")
 	ext $priorityTask
 	ext $categoryTask
 
-	noteTask=$(dprompt "Quit\\n$nameTask" "Note?")
+	noteTask=$(dprompt "$nameTask\\nQuit" "Note?")
 	ext $noteTask
 
-	contextTask=$(dprompt "Quit\n$(task _tags | awk '/^@/')" "$nameTask - Context?")
+	contextTask=$(dprompt "$(task _tags | awk '/^@/')\\nQuit" "$nameTask - Context?")
 	ext $contextTask
 
 	task add priority:$priorityTask project:"$categoryTask.$projectTask" tag:$contextTask "$nameTask"
@@ -90,18 +96,18 @@ singleTask() {
 
 delegate() {
 	singleTask
-	dueTask=$(dprompt "Quit\\n+1d" "$nameTask - Deadline?")
+	dueTask=$(dprompt "\\n+1d\\nQuit" "$nameTask - Deadline?")
 	ext $dueTask
-	waitTask=$(dprompt "Quit\\n+1d" "$nameTask - Wait until?")
+	waitTask=$(dprompt "\\n+1d\\nQuit" "$nameTask - Wait until?")
 	ext $waitTask
 	task $newId modify due:dueTask wait:$waitTask ;}
 
 calendar() {
-	day=$(dprompt "Quit\\n$(date '+%m/%d/%Y')" "Day of the event?")
+	day=$(dprompt "$(date '+%m/%d/%Y')\\nQuit" "Day of the event?")
 	ext $day
-	allDay=$(dprompt "Quit\\nYes\\nNo" "All day event?")
+	allDay=$(dprompt "Yes\\nNo\\nQuit" "All day event?")
 	ext $allDay
-	nameCal=$(dprompt "Quit\\n$descTodo" "Description:")
+	nameCal=$(dprompt "$descTodo\\nQuit" "Description:")
 	ext $nameCal
 	case $allDay in
 		"Yes") printf "$day [1] $nameCal" >> $HOME/.config/calcurse/apts;;
@@ -111,14 +117,14 @@ calendar() {
 
 
 singleTaskProcess() {
-	min=$(dprompt "Quit\\nNo\\nYes" "$descTodo - Does it take less than 2 minutes?")
+	min=$(dprompt "No\\nYes\\nQuit" "$descTodo - Does it take less than 2 minutes?")
 	ext $min
 	if [[ "$min" == "Yes" ]]; then
 		task del $todoID
 		notify-send "DO IT " "$descTodo"; exit 1
 	fi
 
-	actionType=$(dprompt "Quit\\nNext\\nDelegate\\nCalendar" "Choose an action:")
+	actionType=$(dprompt "Next\\nDelegate\\nCalendar\\nQuit" "Choose an action:")
 	ext $actionType
 	case $actionType in
 		"Delegate") delegate ;;
@@ -139,7 +145,7 @@ singleTaskProcess() {
 for todoID in $listIds; do
 	countTodo=$(printf "$listIds" | wc -l)
 	descTodo=$(task $todoID desc | awk '/^[a-zA-Z]/' | awk 'FNR== 2 {print}')
-	isActionable=$(dprompt "Quit\\nYes\\nNo" "$countTodo $descTodo - Is it actionable?")
+	isActionable=$(dprompt "Yes\\nNo\\nQuit" "$countTodo $descTodo - Is it actionable?")
 	ext $isActionable
 	case $isActionable in
 		"Yes") singleTaskProcess;;

@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'jreybert/vimagit', {'on': ['Magit', 'MagitOnly']}
-Plug 'vimwiki/vimwiki', {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
+Plug 'vimwiki/vimwiki'   ", {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
 Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'dhruvasagar/vim-table-mode'

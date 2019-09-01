@@ -20,8 +20,20 @@ super + r
 super + n
 	$TERMINAL -e newsboat
 
-super + y
+# GTD shortcuts
+super + y; y
 	inbox.sh
+super + y; p
+	process.sh
+#super + y; j
+# 5 minute journal
+#super + y; w
+#weeekly review - add to calendar
+
+
+# Wiki shortcuts
+super + v
+	$TERMINAL -e nvim -c VimwikiIndex
 
 # Reload config
 super + F2
