@@ -4,7 +4,7 @@ super + Return
 
 # program launcher
 super + d
-	dmenu_run.sh
+	rofi -show drun
 
 # execute apps
 super + w
@@ -60,9 +60,9 @@ super + F3
 # Volume
 
 XF86AudioMute
-	volume.sh mute
+	lmc.sh mute
 XF86AudioLowerVolume
-	volume.sh down
+	lmc.sh down
 XF86AudioRaiseVolume
-	volume.sh up
+	lmc.sh up
 

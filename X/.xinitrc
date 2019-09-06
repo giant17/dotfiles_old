@@ -7,5 +7,4 @@
 
 #command -v "$WM" > /dev/null || echo "$WM not installed" && exit 1
 # exec bspwm
-dwmbar.sh &
-exec dwm
+exec i3

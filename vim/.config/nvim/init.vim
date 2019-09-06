@@ -20,6 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'kassio/neoterm'
+Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'lervag/vimtex'
@@ -32,7 +33,11 @@ call plug#end()
 
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
-colorscheme wal
+
+syntax enable
+set background=dark
+colorscheme solarized
+call togglebg#map("<F6>")
 " set termguicolors
 
 "" GENERAL

@@ -9,8 +9,8 @@
 #**********************************************/
 
 
-directory: ~/media/Music
+directory: ~/media/music
 library: ~/.config/beets/musiclibrary.db
 import:
     move: yes
-plugins: lyrics lastgenre edit
+plugins: fetchart lyrics lastgenre edit

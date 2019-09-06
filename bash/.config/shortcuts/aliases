@@ -8,6 +8,7 @@ alias v="nvim" \
 	tt="task -inbox -someday" \
 	ti="task inbox" \
 	install="sudo apt-get install" \
+	p="sudo pacman" \
 	cre="crontab -e" \
 	mg="nvim -c MagitOnly" \
 	tw="nvim -c TW" \
@@ -20,7 +21,10 @@ alias v="nvim" \
 	pirate='pirate-get -t' \
 	cal='calcurse -D ~/.config/calcurse' \
 	gp='git push origin master' \
-	f='vifmrun'
+	f='vifmrun' \
+	tra="transmission-remote-cli" \
+	pp="pip3 install --user"
+
 
 
 
