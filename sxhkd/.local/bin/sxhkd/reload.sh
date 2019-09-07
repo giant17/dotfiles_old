@@ -10,4 +10,5 @@ xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 300 50 &
 pkill dunst
 dunst &
+redshift &
 notify-send " Config reloaded." -t 1000

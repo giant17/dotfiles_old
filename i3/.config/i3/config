@@ -1,32 +1,62 @@
 # vim: filetype=i3
 
 font pango:FuraCode Nerd Font 10
-new_window 1pixel
+#new_window 1pixel
 hide_edge_borders both
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border normal
+# pixel 1
 gaps inner 10
 gaps outer 5
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 
 # #---Dropdown Windows---# #
-# General dropdown window traits. The order can matter.
-for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
-for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450
-for_window [instance="dropdown_dropdowncalc"] resize set 800 300
-for_window [instance="dropdown_tmuxdd"] border pixel 3
-for_window [instance="dropdown_dropdowncalc"] border pixel 2
-for_window [instance="dropdown_*"] move position center
+ # General dropdown window traits. The order can matter. */
+#for_window [instance="scratchpad"] floating enable */
+#for_window [instance="scratchpad"] move scratchpad */
+#for_window [instance="scratchpad"] sticky enable */
+#for_window [instance="scratchpad"] scratchpad show */
+#for_window [instance="scratchpad"] resize set 625 450 */
+#for_window [instance="scratchpad"] resize set 800 300 */
+#for_window [instance="scratchpad"] border pixel 3 */
+#for_window [instance="scratchpad"] border pixel 2 */
+#for_window [instance="scratchpad"] move position center */
+#for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
+##bindsym $mod+F1 exec --no-startup-id urxvt -name scratchpad -e ncmpcpp
+##exec_always --no-startup-id sh ~/.config/i3/dock
+## exec_always --no-startup-id autorandr --change && remaps
+##exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+#
+#exec --no-startup-id urxvt -name scratchpad
+#for_window [title="scratchpad"] move scratchpad
+#bindsym $mod+u [title="scratchpad"] scratchpad show, resize set 940 600, move position center
+
+#tmux for terminals/weechat/builds and upgrades
+exec $TERMINAL -title spad -e sh -c "tmux attach -t spad || tmux new-session -s spad"
+#bindsym u [title="spad"] scratchpad show
+bindsym $mod+u exec --no-startup-id $TERMINAL -title spad -e sh -c "tmux attach -t spad || tmux new-session -s spad"
+for_window [title="spad"] move scratchpad
+
+
+#file manager
+bindsym $mod+F12 [title="ranger-session"] scratchpad show
+bindsym $mod+Shift+F12 exec --no-startup-id rxvt -T "ranger-session" -e sh -c "tmux attach -t ranger-session || tmux new-session -s ranger-session -d ranger"
+for_window [title="ranger-session"] move scratchpad
+for_window [title="ranger-session"] resize grow height 150 px
+for_window [title="ranger-session"] resize grow width 200 px
+#music
+#bindsym Scroll_Lock [title="ncmpcpp_music"] scratchpad show
+#bindsym $mod+u exec --no-startup-id $term -title music -e sh -c "tmux attach -t ncmpcpp_music || tmux new-session -s ncmpcpp_music -d ncmpcpp"
+#for_window [title="ncmpcpp_music"] move scratchpad
+#for_window [title="ncmpcpp_music"] resize grow height 350 px
+#for_window [title="ncmpcpp_music"] resize grow width 700 px
 
 
 
-#exec_always --no-startup-id sh ~/.config/i3/dock
-# exec_always --no-startup-id autorandr --change && remaps
-#exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+
+
+
 bar {
 	font pango:mono 10
 	status_command i3blocks
@@ -66,7 +96,6 @@ bindsym $mod+space		focus mode_toggle
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
-
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
@@ -81,7 +110,8 @@ bindsym $mod+Shift+t		gaps inner current set 10; gaps outer current set 5
 
 bindsym $mod+Shift+y	resize grow width 1 px or 1 ppt
 
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
+# bindsym $mod+u			exec --no-startup-id ddspawn.sh tmuxdd.sh */
+# bindsym $mod+u exec --no-startup-id  urxvt -name scratchpad -e ncmpcpp
 bindsym $mod+Shift+u    resize shrink height 1 px or 1 ppt
 
 bindsym $mod+Shift+i    resize grow height 1 px or 1 ppt
@@ -204,6 +234,6 @@ for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
 # #---Function Buttons---# #
-bindsym $mod+F2		restart
+bindsym $mod+Shift+F2		restart
 
 # #---Arrow Keys---# #

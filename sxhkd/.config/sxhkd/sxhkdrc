@@ -36,14 +36,14 @@ super + v
 	$TERMINAL -e nvim -c VimwikiIndex
 
 # Reload config
-super + F2
-	reload.sh
 super + F6
 	torwrap.sh
 super + shift + Escape
 	killXorg.sh
-super + grave
-	getUnicode.sh
+super + grave; e
+	rofimoji
+super + grave; f
+	getFontawesome.sh
 super + F9
 	mount.sh
 super + F10
@@ -52,8 +52,11 @@ super + Print
 	record.sh
 super + F12
 	wal_choose.sh
+# Thinkpad german Druck
 shift + Print
 	maimpick.sh
+super + F2
+	monitor.sh --auto
 super + F3
 	monitor.sh --manual
 

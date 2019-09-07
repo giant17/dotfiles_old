@@ -18,6 +18,7 @@ Plug 'jreybert/vimagit', {'on': ['Magit', 'MagitOnly']}
 Plug 'vimwiki/vimwiki'   ", {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
 Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'lambdalisue/suda.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'kassio/neoterm'
 Plug 'altercation/vim-colors-solarized'
@@ -29,8 +30,10 @@ Plug 'jvirtanen/vim-octave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jpalardy/vim-slime'
+Plug 'PotatoesMaster/i3-vim-syntax'
 call plug#end()
 
+let g:suda_smart_edit = 1
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
 

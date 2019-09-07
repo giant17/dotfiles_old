@@ -32,7 +32,7 @@ browser = /usr/bin/w3m
 icon_position = left
 max_icon_size = 80
 #icon_path = /usr/share/icons/gnome/16x16/status
-frame_width = 3
+frame_width = 1
 frame_color = "#839496"
 [shortcuts]
     close = ctrl+space

@@ -1,38 +1,60 @@
-#!/bin/sh
-# Mount drives, android and USB
+#!/usr/bin/env sh
 
-error() { notify-send " ERROR" "$1"; exit 1;}
-require() {	ifinstalled jmtpfs ;}
-getAndroid=$(jmtpfs -l 2>/dev/null | awk '/^[0-9]/ {print $1 $2}' |rev | cut -c2- | rev)
-getUSB=$(lsblk -rpo "name,type,size,mountpoint" | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}')
-getMountPoint() {
-	mnts=$(du /mnt/* | awk '{print $2}')
-	chosenPoint=$(printf "$mnts" | dmenu.sh -i -p "Which Mount point?")
-	[ ! -d "$chosenPoint" ] && error "$chosenPoint not found" ;}
-mountAndroid() {
-	chosenAndroid=$(printf "$getAndroids" | dmenu.sh -i -p "Which Android device?")
-	jmtpfs -device=$chosenAndroid /mnt/phone
-	notify-send " Android mounted." "$chosenAndroid" && exit 0 ;}
-mountUSB() {
-	getMountPoint
-	chosenUSB=$(printf "$getUSB" | dmenu.sh -i -p "Which USB?" | awk '{print $1}')
-	sudo -A mount $chosenUSB $chosenPoint
-	notify-send " USB mounted." "$chosenUSB" && exit 0 ;}
-checkType() {
-	if [ -z "$getUSB" ]; then
-		[ -z "$getAndroids" ] && error "No USB drive or Android device detected"
-		mountAndroid
-	else
-		if [ -z "$getAndroids" ];then
-			mountUSB
-		else
-			chooseType
-		fi
-	fi ;}
-chooseType() {
-	case $(printf "USB\\nAndroid" | dmenu.sh -i -p "Mount a USB drive or Android device?") in
-		USB) mountUSB ;;
-		Android) mountAndroid ;;
+# Gives a rofi prompt to mount unmounted drives.
+# If they're in /etc/fstab, they'll be mounted automatically.
+# Otherwise, you'll be prompted to give a mountpoint from already existsing directories.
+# If you input a novel directory, it will prompt you to create that directory.
+
+getmount() { \
+	[ -z "$chosen" ] && exit 1
+	mp="$(find $1 2>/dev/null | rofi -dmenu -i -p "Type in mount point.")"
+	[ "$mp" = "" ] && exit 1
+	if [ ! -d "$mp" ]; then
+		mkdiryn=$(printf "No\\nYes" | rofi -dmenu -i -p "$mp does not exist. Create it?")
+		[ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
+	fi
+	}
+
+mountusb() { \
+	chosen="$(echo "$usbdrives" | rofi -dmenu -i -p "Mount which drive?" | awk '{print $1}')"
+	sudo -A mount "$chosen" 2>/dev/null && notify-send " USB mounted" "$chosen" -t 1000 && exit 0
+	alreadymounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not \\( -path *%s -prune \\) \\ \n",$3}')
+	getmount "/mnt /media /mount /home -maxdepth 5 -type d $alreadymounted"
+	partitiontype="$(lsblk -no "fstype" "$chosen")"
+	case "$partitiontype" in
+		"vfat") sudo -A mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
+		*) sudo -A mount "$chosen" "$mp"; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" "$mp";;
+	esac
+	notify-send " USB mounted" "$mp" -t 1000
+	}
+
+mountandroid() { \
+	chosen=$(echo "$anddrives" | rofi -dmenu -i -p "Which Android device?" | cut -d : -f 1)
+	getmount "$HOME -maxdepth 3 -type d"
+	simple-mtpfs --device "$chosen" "$mp"
+	notify-send " Android Mounted" "$mp" -t 1000
+	}
+
+asktype() { \
+	case $(printf "USB\\nAndroid" | rofi -dmenu -i -p "Mount a USB drive or Android device?") in
+		USB) mountusb ;;
+		Android) mountandroid ;;
 	esac
 	}
-checkType
+
+anddrives=$(simple-mtpfs -l 2>/dev/null)
+usbdrives="$(lsblk -rpo "name,type,size,mountpoint" | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}')"
+
+if [ -z "$usbdrives" ]; then
+	[ -z "$anddrives" ] && echo "No USB drive or Android device detected" && exit
+	echo "Android device(s) detected."
+	mountandroid
+else
+	if [ -z "$anddrives" ]; then
+		echo "USB drive(s) detected."
+	       	mountusb
+	else
+		echo "Mountable USB drive(s) and Android device(s) detected."
+		asktype
+	fi
+fi
