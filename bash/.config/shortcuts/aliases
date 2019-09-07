@@ -23,7 +23,9 @@ alias v="nvim" \
 	gp='git push origin master' \
 	f='vifmrun' \
 	tra="transmission-remote-cli" \
-	pp="pip3 install --user"
+	pp="pip3 install --user" \
+	kl="killall" \
+	stw="stow -vt ~"
 
 
 

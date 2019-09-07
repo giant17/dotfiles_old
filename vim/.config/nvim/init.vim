@@ -136,7 +136,7 @@ autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd		" Update Binds
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %		" Run xrdb
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb	" Run xrdb
 autocmd BufRead bspwm_sxhkd set filetype=sxhkd
 
 
