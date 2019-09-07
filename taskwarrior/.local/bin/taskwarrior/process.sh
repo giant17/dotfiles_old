@@ -9,8 +9,10 @@
 # TODO: weekly find stalled projects
 
 error() { notify-send " ERROR" "$1"; exit 1;}
-require() {	ifinstalled taskwarrior ;}
-dprompt() { printf "$1" | dmenu.sh -i -l 20 -p "$2" ;}
+require() {	ifinstalled taskwarrior rofi ;}
+dprompt() { printf "$1" | rofi -dmenu -i -p "$2" ;}
+check() { notify-send " Added." "$1";}
+
 ext() {
 	if [[ "$1" == "Quit" ]]; then
 		notify-send "Exiting" ; exit 1
@@ -28,7 +30,11 @@ archive() {
 	journalFile="$journalPath/$(date '+%Y-%m-%d').md"
 	entry=$(dprompt "Quit\\n$descTodo" "Add journal entry:")
 	ext $entry
+	archiveWiki=$(dprompt "\\n$(ls ~/documents/wiki/*.md)\\nQuit" "Select an document:")
+	ext $archiveWiki
 	echo "$entry" >> "$journalFile"
+	echo "$entry" >> "$archiveWiki"
+	check "$entry"
 	task del $todoID ;}
 
 someday() {
@@ -39,17 +45,16 @@ someday() {
 	task del $todoID ;}
 
 book() {
-	nameBook=$(dprompt "$descTodo\\nQuit" "Book name:")
-	ext $nameBook
-	task add +someday +book $nameBook
-	task del $todoID ;}
+	nameBook=$(dprompt "$descTodo\\nQuit" "Book name:") ext $nameBook task add +someday +book $nameBook
+	task del $todoID
+	check "$nameBook" ;}
 
 nonActionable() {
 	nonActionableOption=$(dprompt "Archive\\nBook\\nSomeday\\nDelete\\nQuit" "$countTodo $descTodo")
 	case $nonActionableOption in
 		"Archive") archive;;
 		"Someday") someday;;
-		"Delete") task del $todoID;;
+		"Delete") task del $todoID && notify-send " delete" "$descTodo";;
 		"Book") book;;
 		"Quit") exit ;;
 		"*") error "Option not available.";;
@@ -85,7 +90,8 @@ singleTask() {
 	task add priority:$priorityTask project:"$categoryTask.$projectTask" tag:$contextTask "$nameTask"
 	newId=$(task ids | awk '{sub(/-/," ")}1 {print$2}')
 	task $newId annotate "$noteTask"
-	task del $todoID ;}
+	task del $todoID
+	check "$nameTask" ;}
 
 # project() {
 # 	nameProject=$(dprompt "Quit\\n$descTodo" "Name of the project?")
@@ -142,10 +148,12 @@ singleTaskProcess() {
 # 		"*") error "Option not available.";;
 # 	esac ;}
 
+[ -z $listIds ] && notify-send " Inbox clean" && exit 1
 for todoID in $listIds; do
+	[ -z $listIds ] && notify-send " Inbox clean"
 	countTodo=$(printf "$listIds" | wc -l)
 	descTodo=$(task $todoID desc | awk '/^[a-zA-Z]/' | awk 'FNR== 2 {print}')
-	isActionable=$(dprompt "Yes\\nNo\\nQuit" "$countTodo $descTodo - Is it actionable?")
+	isActionable=$(dprompt "Yes\\nNo\\nQuit" "$(printf "$countTodo - $descTodo \\nIs it actionable?")")
 	ext $isActionable
 	case $isActionable in
 		"Yes") singleTaskProcess;;
