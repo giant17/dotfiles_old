@@ -12,7 +12,7 @@ word_wrap = yes
 ignore_newline = no
 stack_duplicates = yes
 hide_duplicates_count = yes
-geometry = "300x50-15+10"
+geometry = "200x50-5+25"
 shrink = no
 transparency = 0
 idle_threshold = 0
@@ -28,12 +28,12 @@ horizontal_padding = 6
 separator_color = frame
 startup_notification = false
 dmenu = /usr/bin/dmenu -p dunst:
-browser = /usr/bin/firefox -new-tab
+browser = /usr/bin/w3m
 icon_position = left
 max_icon_size = 80
 #icon_path = /usr/share/icons/gnome/16x16/status
 frame_width = 3
-frame_color = "#83a598"
+frame_color = "#839496"
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
@@ -41,20 +41,13 @@ frame_color = "#83a598"
 
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
-    background = "#1d2021"
-    foreground = "#d5c4a1"
+    background = "#073642"
+    foreground = "#839496"
 
 [urgency_normal]
-    background = "#1d2021"
-    foreground = "#d5c4a1"
+    background = "#073642"
+    foreground = "#839496"
 
 [urgency_critical]
-    background = "#1d2021"
-    foreground = "#d5c4a1"
-
-[left]
-    background = "#1d2021"
-    foreground = "#d5c4a1"
-    alignment = left
-
-# vim:ft=cfg
+    background = "#073642"
+    foreground = "#eee8d5"
