@@ -55,7 +55,7 @@ super + F12
 shift + Print
 	maimpick.sh
 super + F3
-	monitor.sh
+	monitor.sh --manual
 
 # Volume
 

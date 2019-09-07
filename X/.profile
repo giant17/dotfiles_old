@@ -13,6 +13,7 @@ export BROWSERCLI="w3m"
 export SUDO_ASKPASS="$HOME/scripts/X/pass.sh"
 export READER="zathura"
 export FILE="vifmrun"
+export REPOS="$HOME/repos"
 export SERVER="gian@gianlucatadori.xyz"
 export BACKUP="$SERVER:/mnt/4TB/backups/debian"
 export _JAVA_AWT_WM_NONREPARENTING=1 # MATLAB for WM

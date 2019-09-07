@@ -48,10 +48,15 @@ endsnippet
 snippet func "[FUNC]tion" b
 ${1:FunctionName}() {
 	$0
-;}
+}
 endsnippet
 
-snippet prompt "[PROMPT] Dmenu" b
-prompt() { [ "$(printf "No\\nYes" | dmenu.sh -i -p "\$1")" = "Yes" ] && \$2 ;}
+snippet dprompt "[PROMPT] Dmenu" b
+prompt() { [ "$(printf "No\\nYes" | dmenu -i -p "\$1")" = "Yes" ] && \$2 ;}
+$0
+endsnippet
+
+snippet rprompt "[PROMPT] Rofi" b
+prompt() { [ "$(printf "No\\nYes" | rofi -dmenu -i -p "\$1")" = "Yes" ] && \$2 ;}
 $0
 endsnippet

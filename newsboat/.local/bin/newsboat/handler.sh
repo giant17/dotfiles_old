@@ -8,8 +8,8 @@
 
 URL=$1
 error() { notify-send " ERROR" "$1"; exit 1;}
-dprompt() { printf "$1" | dmenu -i -p "$2" ;}
-require() {	ifinstalled mpv youtube-dl tsp dmenu ;}
+dprompt() { printf "$1" | rofi -dmenu -i -p "$2" ;}
+require() {	ifinstalled mpv youtube-dl tsp rofi ;}
 findBROWSER() { [ -z ${BROWSER+x} ] && error "BROWSER not found." ;}
 findURL() { [ -z $URL ] && error "URL not found." ;}
 getcopy() {
