@@ -1,0 +1,181 @@
+
+# _     _____ 
+#| |   |  ___| 
+#| |   | |_ 
+#| |___|  _| 
+#|_____|_| 
+#
+
+# Basic vars
+set shell sh
+# set previewer ~/.config/lf/prev.sh
+set previewer ~/.config/lf/scope
+map i $~/.config/lf/pv.sh $f | less -R
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 20
+set icons
+set drawbox on
+set icons
+set info size
+# set info name
+set color256
+set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
+
+cmd recol %{{
+    w=$(tput cols)
+    if [ $w -le 40 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ $w -le 200 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
+# Trash option 
+%mkdir -p ~/.trash 
+cmd trash ${{
+	set -f
+	mv -f $fx ~/.trash
+	notify-send " Moved to trash." "File(s) moved to trash."
+}}
+
+
+cmd tagger ${{
+	set -f
+	beet import $fx
+	notify-send " Music imported." "Music has been imported to library."
+}}
+
+
+
+# cmds/functions
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+    	text/troff) man ./ $f;;
+        text/*) $EDITOR $fx;;
+		# *.csv) sc-im $f;;
+	image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
+	image/*) rotdir $f | setsid sxiv -ai >/dev/null 2>&1 & ;;
+	audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
+	video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
+	application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
+        *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done;;
+    esac
+}}
+
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+
+cmd delete ${{
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/n]"
+	read ans [ $ans = "y" ] && rm -rf $fx }}
+
+cmd moveto ${{
+	set -f
+	clear; echo "Move to where?"
+	dest="$(cat ~/.config/bmdirs | awk '/\/home/ {print $2}' | fzf)" &&
+	eval mv $fx $dest
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(cat ~/.config/bmdirs | awk '/\/home/ {print $2}' | fzf)" &&
+	eval cp -r $fx $dest &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd detox ${{
+	set -f
+	detox -s lower $fx
+}}
+
+cmd bib ${{
+	set -f
+	getbib $fx
+}}
+
+cmd shortcut ${{
+	set -f
+	adds $fx
+}}
+
+cmd perms ${{
+	set -f
+	chmod --reference $BIB $fx
+}}
+
+cmd movetodir ${{
+	set -f
+	clear; echo "Move to where?"
+	dest="$(fdfind -t d | fzf)" &&
+	eval mv $fx $dest &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+
+cmd zip ${{
+    set -f
+    mkdir $1
+    rsync -avh --progress $fx $1
+    # cp -r $fx $1
+    zip -rv $1.zip $1
+    rm -rf $1
+}}
+
+cmd splitflac ${{
+	set -f
+	spliflac.sh $f
+	# notify-send " Split complete" "The flac file has been splitted"
+}}
+
+# Bindings
+map sz push :zip<space>
+map se extract
+map c $lf -remote "send $id cd $(cat ~/.config/bmdirs | awk '/\/home/ {print $2}' | fzf)"
+map J $lf -remote "send $id cd $(cat ~/.config/bmdirs | awk '/\/home/ {print $2}' | fzf)"
+map B bib
+map l open
+map b movetodir
+map A shortcut
+map sf splitflac
+map sT !emptytrash.sh
+map <c-r> !bulkrename "$fx"
+map gh
+map g top
+map X detox
+map P perms
+map D trash
+map T tagger
+# map D delete
+map C copyto
+map M moveto
+map Z push zh
+map I !du -sh $f
+map a push %mkdir<space>
+map r push :rename<space>
+map <enter> shell
+# map R reload
+map o $lf -remote "send $id select '$(fzf)'"
+map R $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
+# map o open
+#map X !$f
+#map o &mimeopen $f
+#map O $mimeopen --ask $f

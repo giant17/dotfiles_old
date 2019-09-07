@@ -82,6 +82,7 @@ map sb :!getbib %f &<CR>
 map st :!tagger.sh %f <CR>
 map sf :!splitflac.sh %f <CR>
 map ss :!srt.sh %f <CR>
+map sw :!stow -t ~ %f <CR>
 
 
 " ICONS

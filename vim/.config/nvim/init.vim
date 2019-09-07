@@ -34,6 +34,7 @@ call plug#end()
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
 
+" colorscheme wal
 syntax enable
 set background=dark
 colorscheme solarized

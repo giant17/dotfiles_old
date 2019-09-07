@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Mail
+Exec=/usr/local/bin/st -e neomutt %u
+z/voidrice/archi3/.local/share/applications/mail.desktop">redirected</a>.</body></html>
