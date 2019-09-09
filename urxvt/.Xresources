@@ -40,7 +40,7 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-!URxvt.perl-ext-common:      default,matcher
+URxvt.perl-ext-common:      default,matcher,solarized
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          $BROWSERCLI
 
@@ -53,14 +53,12 @@ URxvt.cursorUnderline:      false
 !URxvt.pointerBlank:         true
 !
 URxvt.intensityStyles: false
-URxvt.perl-ext-common: solarized
 !URxvt.clipboard.autocopy: true
 URxvt.solarized.default:    dark
 !URxvt.keyboard-select.clipboard: true
 !
-URxvt.keysym.C-M-c: builtin-string:
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-v: eval:paste_clipboard
+URxvt.keysym.M-c: eval:selection_to_clipboard
 !
 !URxvt.keysym.M-s: perl:keyboard-select:search
 !URxvt.keysym.M-Escape: perl:keyboard-select:activate
