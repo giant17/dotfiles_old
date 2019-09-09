@@ -40,9 +40,9 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher,solarized
+URxvt.perl-ext-common:      default,matcher,solarized,keyboard-select,font-size
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          $BROWSERCLI
+URxvt.urlLauncher:          $BROWSER
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -52,14 +52,28 @@ URxvt.cursorUnderline:      false
 ! Pointer
 !URxvt.pointerBlank:         true
 !
+
+!Solarized toggle
 URxvt.intensityStyles: false
-!URxvt.clipboard.autocopy: true
 URxvt.solarized.default:    dark
-!URxvt.keyboard-select.clipboard: true
+URxvt.keysym.M-a:        perl:solarized:toggle
 !
+
+!Copy Paste
 URxvt.keysym.M-v: eval:paste_clipboard
 URxvt.keysym.M-c: eval:selection_to_clipboard
+URxvt.clipboard.autocopy: true
 !
-!URxvt.keysym.M-s: perl:keyboard-select:search
-!URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-a:        perl:solarized:toggle
+
+!Keyboard Select
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+!Url follow
+URxvt.keysym.M-u: perl:matcher:list
+
+!Font size
+URxvt.keysym.M-k:     font-size:increase
+URxvt.keysym.M-j:   font-size:decrease
+URxvt.keysym.M-space:  font-size:reset
