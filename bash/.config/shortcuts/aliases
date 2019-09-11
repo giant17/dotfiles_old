@@ -27,18 +27,24 @@ alias v="nvim" \
 	kl="killall" \
 	scim="sc-im" \
 	z="zathura" \
-	f="vifmrun.sh" \
+	f="vifmrun" \
 	yt="yt.sh -v" \
 	yta="yt.sh -a" \
 	ytp="yt.sh -p" \
 	cal="calcurse -D $HOME/.config/calcurse" \
-	app="sc-im $HOME/repos/debian-installer/debian-apps.csv" \
-	stw="stow -vt ~" \
-	bs="bookmark.sh"
+	appd="sc-im $HOME/repos/debian-installer/debian-apps.csv" \
+	appa="sc-im $HOME/repos/LARBS/progs.csv" \
+	x="sxiv -ft *" \
+	bs="bookmark.sh" \
+	guu="git update-index --assume-unchanged" \
+	vitw="vit +@internet" \
+	upd="yay -Syu"
 
 
 
-
+stw() {
+	folder=$(ls $REPOS/dotfiles/* | fzf)
+	stow -vt ~ $folder ;}
 
 fs() { ls $HOME/.local/bin/*/* | grep -v '__' | fzf | xargs $EDITOR ;}
 ff() { cat $HOME/.config/shortcuts/files | fzf | xargs -r -I % $EDITOR % ;}

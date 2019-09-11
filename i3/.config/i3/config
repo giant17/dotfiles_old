@@ -13,14 +13,17 @@ set $mod Mod4
 
 # BAR
 
+# Polybar
+exec_always --no-startup-id polystart.sh
+
 # i3blocks
-bar {
-	font pango:mono 10
-	status_command i3blocks
-	position top
-	mode dock
-	modifier None
-}
+# bar {
+# 	font pango:mono 10
+# 	status_command i3blocks
+# 	position top
+# 	mode dock
+# 	modifier None
+# }
 
 # BINDINGS
 
@@ -39,8 +42,9 @@ bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+F2		restart
 
-# Launchers
-bindsym $mod+u 			[instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+# Dropdown
+bindsym $mod+u 			[instance="dropdown_term"] scratchpad show; [instance="dropdown_term"] move position center
+bindsym $mod+a 			[instance="dropdown_wiki"] scratchpad show; [instance="dropdown_wiki"] move position center
 
 
 # Toggles
@@ -74,8 +78,7 @@ set $ws9  "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1		workspace $ws1
-bindsym $mod+2		workspace $ws2
+bindsym $mod+1		workspace $ws1 bindsym $mod+2		workspace $ws2
 bindsym $mod+3		workspace $ws3
 bindsym $mod+4		workspace $ws4
 bindsym $mod+5		workspace $ws5
@@ -108,11 +111,13 @@ bindsym $mod+Shift+y	exec --no-startup-id i3resize.sh left
 # CUSTOM
 
 # Scratchpads
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 400
-for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] border pixel 3
-exec --no-startup-id $term -name dropdown -e tmux
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] resize set 625 400
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] border pixel 3
+
+exec --no-startup-id $term -name dropdown_term -e sh -c "tmux attach -t dropdown-term || tmux new-session -s dropdown-term"
+exec --no-startup-id $term -name dropdown_wiki -e tmuxWiki.sh
 
 # Freeze Mode
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)

@@ -17,8 +17,9 @@ export FILE="vifmrun"
 export FILES="$HOME/.config/shortcuts/files"
 export DIRECTORIES="$HOME/.config/shortcuts/directories"
 export REPOS="$HOME/repos"
+export DATA="$HOME/documents/data"
 export SERVER="gian@gianlucatadori.xyz"
-export BACKUP="$SERVER:/mnt/4TB/backups/debian"
+export REMOTEBACKUP="$SERVER:/mnt/4TB/backup"
 export _JAVA_AWT_WM_NONREPARENTING=1 # MATLAB for WM
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export PYTHONPATH="$HOME/.local/bin/python:${PYTHONPATH}:$HOME/.scripts/python"
@@ -27,7 +28,7 @@ export TEXMFHOME="$HOME/.config/texmf"
 
 #source $HOME/.cache/wal/colors.sh
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-# mpd > /dev/null 2>&1 &
+mpd > /dev/null 2>&1 &
 
 #Autostart startx
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx

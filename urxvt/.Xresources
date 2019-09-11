@@ -29,7 +29,7 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Monospace:pixelsize=20
+URxvt*font: xft:Monospace:pixelsize=20,xft:Symbola
 URxvt*boldFont: xft:Monospace:pixelsize=20
 
 ! Fix font space
@@ -74,6 +74,10 @@ URxvt.keyboard-select.clipboard: true
 URxvt.keysym.M-u: perl:matcher:list
 
 !Font size
-URxvt.keysym.M-k:     font-size:increase
-URxvt.keysym.M-j:   font-size:decrease
-URxvt.keysym.M-space:  font-size:reset
+URxvt.keysym.M-Shift-K:   font-size:increase
+URxvt.keysym.M-Shift-J:   font-size:decrease
+URxvt.keysym.M-space:     font-size:reset
+
+!Scroll
+URxvt.keysym.Meta-k: command:\033]720;1\007
+URxvt.keysym.Meta-j: command:\033]721;1\007

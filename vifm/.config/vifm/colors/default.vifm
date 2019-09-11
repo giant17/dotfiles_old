@@ -12,12 +12,12 @@ highlight CurrLine cterm=bold,reverse ctermfg=default ctermbg=default
 highlight TopLine cterm=none ctermfg=default ctermbg=default
 highlight TopLineSel cterm=bold ctermfg=default ctermbg=default
 highlight StatusLine cterm=bold ctermfg=default ctermbg=default
-highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine cterm=none ctermfg=white ctermbg=black
+highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=default
+highlight CmdLine cterm=none ctermfg=white ctermbg=default
 highlight ErrorMsg cterm=none ctermfg=red ctermbg=black
-highlight Border cterm=none ctermfg=white ctermbg=black
+highlight Border cterm=none ctermfg=white ctermbg=default
 highlight JobLine cterm=bold,reverse ctermfg=black ctermbg=white
-highlight SuggestBox cterm=bold ctermfg=default ctermbg=default
+highlight SuggestBox cterm=bold ctermfg=default ctermbg=black
 highlight CmpMismatch cterm=bold ctermfg=white ctermbg=red
 highlight AuxWin cterm=bold,underline,reverse,standout,italic ctermfg=default ctermbg=default
 highlight TabLine cterm=none ctermfg=white ctermbg=black

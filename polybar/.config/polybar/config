@@ -47,7 +47,7 @@ alert-foreground = #002b36
 [bar/itsabar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 20
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -59,11 +59,11 @@ foreground = ${colors.foreground}
 
 
 ; font-0 = "Inconsolata Nerd Font:style=Medium:size=14;2"
-font-0 = "Inconsolata Nerd Font:size=10"
+font-0 = "FantasqueSansMono Nerd Font Mono:size=10"
 
 modules-left = i3
 modules-center =
-modules-right = s mpd d pulseaudio d torrent d weather d cal d mail d news d cpu d temperature d memory d wlan eth d battery d date
+modules-right = s mpd d pulseaudio d upgrade d cpu d temperature d memory d wlan eth d battery d date
 
 tray-position = right
 tray-padding = 2
@@ -195,6 +195,14 @@ label-urgent = %index%
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/upgrade]
+type = custom/script
+exec = sh ~/.local/bin/polybar/updates-arch.sh
+interval = 30
+format-prefix = ""
+label =  %output%
+format-background = ${colors.background}
+
 [module/cal]
 type = custom/script
 exec = sh ~/.scripts/statusbar/cal.sh
@@ -284,7 +292,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "  "
+format-prefix = " "
 format-background = ${colors.background}
 label = %percentage:2%%
 
@@ -390,27 +398,27 @@ label-charging-padding = 1
 ;label-discharging-background = ${colors.background}
 label-discharging-padding = 1
 
-format-full-prefix = "  "
+format-full-prefix = " "
 format-full-background = ${colors.background}
 
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 = "  "
-ramp-capacity-3 = "  "
-ramp-capacity-4 = "  "
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 
-animation-charging-4 = "  "
-animation-charging-3 = "  "
-animation-charging-2 = "  "
-animation-charging-1 = "  "
-animation-charging-0 = "  "
+animation-charging-4 = " "
+animation-charging-3 = " "
+animation-charging-2 = " "
+animation-charging-1 = " "
+animation-charging-0 = " "
 animation-charging-framerate = 750
 
-animation-discharging-0 = "  "
-animation-discharging-1 = "  "
-animation-discharging-2 = "  "
-animation-discharging-3 = "  "
-animation-discharging-4 = "  "
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
+animation-discharging-3 = " "
+animation-discharging-4 = " "
 animation-discharging-framerate = 750
 
 [module/temperature]

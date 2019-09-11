@@ -28,9 +28,9 @@ archive() {
 	# Save the description into journal wiki of the day
 	journalPath='/home/gian/documents/wiki/diary'
 	journalFile="$journalPath/$(date '+%Y-%m-%d').md"
-	entry=$(dprompt "Quit\\n$descTodo" "Add journal entry:")
+	entry=$(dprompt "Quit\\n$descTodo" "Add journal entry")
 	ext $entry
-	archiveWiki=$(dprompt "\\n$(ls ~/documents/wiki/*.md)\\nQuit" "Select an document:")
+	archiveWiki=$(dprompt "\\n$(ls ~/documents/wiki/*.md)\\nQuit" "Select an document")
 	ext $archiveWiki
 	echo "$entry" >> "$journalFile"
 	echo "$entry" >> "$archiveWiki"
@@ -39,23 +39,35 @@ archive() {
 
 someday() {
 	# Add task to a someday list
-	newSomeday=$(dprompt "$descTodo\\nQuit" "Add new Someday todo:")
+	newSomeday=$(dprompt "$descTodo\\nQuit" "Add new Someday todo")
 	ext $newSomeday
 	task add +someday $newSomeday
 	task del $todoID ;}
 
 book() {
-	nameBook=$(dprompt "$descTodo\\nQuit" "Book name:") ext $nameBook task add +someday +book $nameBook
+	nameBook=$(dprompt "$descTodo\\nQuit" "Book name")
+	ext $nameBook
+	task add +someday +book $nameBook
 	task del $todoID
 	check "$nameBook" ;}
 
+shopping() {
+	nameItem=$(dprompt "$descTodo\\nQuit" "Item name")
+	ext $nameItem
+	priceItem=$(dprompt "$descTodo\\nQuit" "Item price")
+	ext $priceItem
+	task add +@shopping $priceItem:$nameItem
+	task del $todoID
+	check "$nameItem" ;}
+
 nonActionable() {
-	nonActionableOption=$(dprompt "Archive\\nBook\\nSomeday\\nDelete\\nQuit" "$countTodo $descTodo")
+	nonActionableOption=$(dprompt "Archive\\nBook\\nShopping\\nSomeday\\nDelete\\nQuit" "$countTodo $descTodo")
 	case $nonActionableOption in
 		"Archive") archive;;
 		"Someday") someday;;
 		"Delete") task del $todoID && notify-send " delete" "$descTodo";;
 		"Book") book;;
+		"Shopping") shopping;;
 		"Quit") exit ;;
 		"*") error "Option not available.";;
 	esac ;}
@@ -81,7 +93,7 @@ singleTask() {
 	ext $priorityTask
 	ext $categoryTask
 
-	noteTask=$(dprompt "$nameTask\\nQuit" "Note?")
+	noteTask=$(dprompt "\\n$nameTask\\nQuit" "Note?")
 	ext $noteTask
 
 	contextTask=$(dprompt "$(task _tags | awk '/^@/')\\nQuit" "$nameTask - Context?")
@@ -113,11 +125,11 @@ calendar() {
 	ext $day
 	allDay=$(dprompt "Yes\\nNo\\nQuit" "All day event?")
 	ext $allDay
-	nameCal=$(dprompt "$descTodo\\nQuit" "Description:")
+	nameCal=$(dprompt "$descTodo\\nQuit" "Description")
 	ext $nameCal
 	case $allDay in
 		"Yes") printf "$day [1] $nameCal" >> $HOME/.config/calcurse/apts;;
-		"No") printf "$day @ $(dprompt "$(date '+%H:%M')" "Start time:") -> $day @ $(dprompt "$(date '+%H:%M')" "End time:")|$nameCal" >> $HOME/.config/calcurse/apts ;;
+		"No") printf "$day @ $(dprompt "$(date '+%H:%M')" "Start time") -> $day @ $(dprompt "$(date '+%H:%M')" "End time")|$nameCal" >> $HOME/.config/calcurse/apts ;;
 	esac ;}
 
 
@@ -130,7 +142,7 @@ singleTaskProcess() {
 		notify-send "DO IT " "$descTodo"; exit 1
 	fi
 
-	actionType=$(dprompt "Next\\nDelegate\\nCalendar\\nQuit" "Choose an action:")
+	actionType=$(dprompt "Next\\nDelegate\\nCalendar\\nQuit" "Choose an action")
 	ext $actionType
 	case $actionType in
 		"Delegate") delegate ;;
@@ -150,6 +162,7 @@ singleTaskProcess() {
 
 [ -z $listIds ] && notify-send " Inbox clean" && exit 1
 for todoID in $listIds; do
+	listIds=$(task inboxd | sed '$ d' | awk '/[0-9]/')
 	[ -z $listIds ] && notify-send " Inbox clean"
 	countTodo=$(printf "$listIds" | wc -l)
 	descTodo=$(task $todoID desc | awk '/^[a-zA-Z]/' | awk 'FNR== 2 {print}')

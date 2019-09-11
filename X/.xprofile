@@ -20,6 +20,7 @@ xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 300 50 &
 unclutter &
 xcompmgr &
+#compton &
 #xrdb -merge $HOME/.Xresources
 #wal -R &
 dunst &
