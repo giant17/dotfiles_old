@@ -96,7 +96,7 @@ config.bind(',n' , 'config-cycle content.user_stylesheets themes/solarized-dark.
 
 ## FONTS
 
-c.fonts.monospace = '"Inconsolata Nerd Font", monospace'
+c.fonts.monospace = '"FantasqueSansMono Nerd Font Mono", monospace'
 
 mono = '12pt monospace'
 small_mono = '13pt monospace'

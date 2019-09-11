@@ -12,7 +12,6 @@
 
 
 " source ~/.config/vifm/scripts/Configs.vim
-" source ~/.config/vifm/scripts/Powerline.vim
 " GENERAL
 set vicmd=$EDITOR
 set vimhelp
@@ -33,10 +32,10 @@ colorscheme default
 
 " COMMANDS
 
-command! cdfzf :set noquickview | :execute 'cd "'.system('cat ~/.config/bookmarks/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! cpfzf :set noquickview | :yank | :execute 'copy "'.system('cat ~/.config/bookmarks/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! mvfzf :set noquickview | :yank | :execute 'move! "'.system('cat ~/.config/bookmarks/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! ffzf :set noquickview | :execute 'edit "'.system('cat ~/.config/bookmarks/files | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! cdfzf :set noquickview | :execute 'cd "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! cpfzf :set noquickview | :yank | :execute 'copy "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! mvfzf :set noquickview | :yank | :execute 'move! "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! ffzf :set noquickview | :execute 'edit "'.system('cat ~/.config/shortcuts/files | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
 command! gofzf :set noquickview | :execute 'goto "'.system('ls -a | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
 command! cddfzf :set noquickview | :yank | :execute 'move! "'.system('realpath $(find . -maxdepth 1 -type d) | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
 
@@ -161,3 +160,6 @@ fileviewer *.gif
         \ vifmimg gifpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
+
+
+"source ~/.config/vifm/scripts/Powerline.vim

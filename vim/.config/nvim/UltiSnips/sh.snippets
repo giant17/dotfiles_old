@@ -31,6 +31,11 @@ find$1() { [ -f \$${1:FilePath} ] || error "$1 file not found." ;}
 $0
 endsnippet
 
+snippet chd "[CH]eck Directory" b
+find$1() { [ -d \$${1:FilePath} ] || error "$1 file not found." ;}
+$0
+endsnippet
+
 snippet chv "[CH]eck [V]ariable" b
 find$1() { [ -z ${${1:Variable}+x} ] && error "$1 variable not found." ;}
 $0
@@ -52,11 +57,11 @@ ${1:FunctionName}() {
 endsnippet
 
 snippet dprompt "[PROMPT] Dmenu" b
-prompt() { [ "$(printf "No\\nYes" | dmenu -i -p "\$1")" = "Yes" ] && \$2 ;}
+prompt() { printf "$1" | dmenu -i -p "\$2" ;}
 $0
 endsnippet
 
-snippet rprompt "[PROMPT] Rofi" b
-prompt() { [ "$(printf "No\\nYes" | rofi -dmenu -i -p "\$1")" = "Yes" ] && \$2 ;}
+snippet rpr "[PROMPT] Rofi" b
+prompt() { printf "\$1" | rofi -dmenu -i -p "\$2" ;}
 $0
 endsnippet

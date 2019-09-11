@@ -1,12 +1,21 @@
+" Vim Config
 
+
+" Download Plug manager if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
+" List of plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug 'zchee/deoplete-jedi'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-syntastic/syntastic', {'for': 'python'}
+Plug 'nvie/vim-flake8'
 Plug 'xarthurx/taskwarrior.vim', {'on': 'TW' }
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -15,7 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'jreybert/vimagit', {'on': ['Magit', 'MagitOnly']}
-Plug 'vimwiki/vimwiki'   ", {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
+Plug 'vimwiki/vimwiki' , {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
 Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'lambdalisue/suda.vim'
@@ -25,24 +34,16 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'lervag/vimtex'
-Plug 'ap/vim-css-color'
 Plug 'jvirtanen/vim-octave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jpalardy/vim-slime'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'junegunn/vim-easy-align'
+Plug 'jvirtanen/vim-octave'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-
-let g:suda_smart_edit = 1
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
-
-" colorscheme wal
-syntax enable
-set background=dark
-colorscheme solarized
-call togglebg#map("<F6>")
-" set termguicolors
 
 "" GENERAL
 let mapleader =","				" Set leader key to ,
@@ -52,9 +53,6 @@ set nocompatible				" Allow non user vim
 set wildmode=longest,list,full	" Enable autocompletion
 set tabstop=4					" Tab spaces
 set shiftwidth=4				" When using Shift + > or <
-
-" Enable sudo on vim
-cmap w!! w !sudo tee > /dev/null %
 
 " Stuff to understand
 set go=a
@@ -69,24 +67,30 @@ vnoremap <C-c> "+y
 map <C-p> "+P
 nnoremap c "_c
 
-" Remeber last position TODO: control vim speed without
-if has("autocmd")
-	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-  endif
-
-"" APPEARANCE
 set t_Co=16										" True colors
 set encoding=utf-8								" Encoding stuff
 set number relativenumber						" Display current line number
 
-" TODO Improve mune selection colors
-hi Pmenu ctermfg=24 ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
-hi PmenuSel ctermfg=236 ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
-" Limelight settings
-" let g:limelight_conceal_ctermfg = 240  			" Solarized Base01
-" let g:limelight_conceal_guifg = '#586e75' 		" Solarized Base02
 
-"" NAVIGATION
+" Remember last position
+if has("autocmd")
+	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  endif
+
+""APPEARANCE
+syntax enable
+set background=dark
+colorscheme solarized
+
+let g:airline_powerline_fonts = 1
+let g:airline_solarized_bg='dark'
+
+
+let g:limelight_conceal_ctermfg = 241  			" Solarized Base01
+"let g:limelight_conceal_guifg = '#586e75' 		" Solarized Base02
+
+
+" NAVIGATION
 set splitbelow splitright 	" Split open at the bottom and right
 
 " Shortcuts
@@ -102,6 +106,7 @@ nnoremap <silent> <leader>- :resize<space>-10<cr>
 nnoremap <silent> <leader>< :vertical resize<space>+10<cr>
 nnoremap <silent> <leader>. :vertical resize<space>-10<cr>
 
+
 " Guides
 inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
@@ -109,42 +114,45 @@ map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 "" WRITING
 
-" Automatically deletes all trailing whitespace on save.
+"Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
+" Markdown
 let g:table_mode_map_prefix = '<leader>m'		" Enable table mode
-
-" Set filetypes
-let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
-			               \'.rmd': 'markdown',
-						   \'.md': 'markdown',
-						   \'.markdown': 'markdown',
-						   \'.mdown': 'markdown'}			" Vim Wiki
-
 " Set vim wiki
-let g:vimwiki_list = [{'path': '~/documents/wiki',
+let g:vimwiki_list = [{'path': '~/archive/wiki',
 	                  \'syntax': 'markdown', 'ext': '.md',}]
 
+let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
+						   \'.rmd': 'markdown',
+						   \'.md': 'markdown',
+                           \'.markdown': 'markdown',
+						   \'.mdown': 'markdown'}			" Vim Wiki
 
-" TODO Spelling
-" autocmd FileType vimwiki set complete+=kspell
-" autocmd FileType vimwiki setlocal spell
+" Latex
 
 " Filetypes tex
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd FileType tex set complete+=kspell
 autocmd FileType tex setlocal spell
 
+" Vimtex
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method='zathura'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'nvr'
+autocmd FileType tex nnoremap <leader>c :VimtexCompile<cr>
+autocmd FileType tex nnoremap <leader>w :VimtexCountWords<cr>
+
 " Filetype
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-
-
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd		" Update Binds
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb	" Run xrdb
 autocmd BufRead bspwm_sxhkd set filetype=sxhkd
 
-
-" TODO Set scripts
+" Goyo
 
 " Shortcut definition
 map <leader>f :Goyo \| set linebreak<cr>
@@ -157,47 +165,26 @@ autocmd! User GoyoLeave Limelight!
 autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 
+" CODING
 
-" TODO: set coding
-
-
-
-
-
-" DEOPLETE
-let g:deoplete#enable_at_startup = 1
+" Deoplete
+autocmd InsertEnter * call deoplete#enable()
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:jedi#completions_enabled = 0
-" " open the go-to function in split, not another buffer
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:pymode_rope = 0
 let g:pymode_folding=0
 
-
-" disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
-
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
-
-" Ultisnips tabs
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
-let g:UltiSnipsEditSplit="vertical"
-
-" Ultisnips performance
+" Ultisnips
 let g:loaded_python_provider = 1
 let g:python_host_skip_check=1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_skip_check=1
 let g:python3_host_prog = '/usr/bin/python3'
-" Ultisnips folders
 let g:UltiSnipsSnippetDir=["~/.config/nvim/UltiSnips"]
 let g:vimwiki_table_mappings = 0
-autocmd FileType vimwiki UltiSnipsAddFiletypes markdown
 nmap <leader>b :UltiSnipsEdit<cr>
 let g:vimwiki_autowriteall = 1
+
+" Neoterm
 
 " Terminal buffer exit as others
 tnoremap <Esc> <C-\><C-n>
@@ -213,21 +200,18 @@ map <leader>tc :Tclear!<cr>
 map <leader>tk :Tkill!<cr>
 au VimEnter,BufRead,BufNewFile *.m set filetype=octave
 let g:neoterm_repl_octave_qt = 1 " Activate Qt widgets for Octave
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd FileType tex set complete+=kspell
-autocmd FileType tex setlocal spell
 
-" Enable Vimtex plugin
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method='zathura'
-" let g:vimtex_quickfix_mode=0
-" set conceallevel=1
-let g:tex_conceal = ''
-let g:vimtex_fold_manual = 1
-let g:vimtex_latexmk_continuous = 1
-let g:vimtex_compiler_progname = 'nvr'
+" Python
+let g:SimpylFold_docstring_preview=1
+let python_highlight_all=1
 
-" Shortcut
-autocmd FileType tex nnoremap <leader>c :VimtexCompile<cr>
-autocmd FileType tex nnoremap <leader>w :VimtexCountWords<cr>
 
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:deoplete#sources#jedi#show_docstring = 1
+
+
+xmap ga <Plug>(EasyAlign)

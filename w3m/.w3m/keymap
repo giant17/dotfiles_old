@@ -178,6 +178,7 @@ keymap ef       PEEK_LINK					#Show link under cursor.
 keymap M-o      EXTERN
 #copy current url and remove newline at the end.
 keymap yy       EXTERN     copy_url.sh
+keymap yp       EXTERN     to_pdf.sh
 #keymap yy       EXTERN     "echo -n %s | xclip -i -selection clipboard"
 #keymap yy       EXTERN     "echo -n %s | xsel -b"
 #open link under cursor with external browser = sensible browser

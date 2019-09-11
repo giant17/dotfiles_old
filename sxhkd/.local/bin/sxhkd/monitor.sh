@@ -9,10 +9,17 @@ allposs=$(xrandr -q | grep "connected")
 screens=$(echo "$allposs" | grep " connected" | awk '{print $1}')
 
 autoMonitor() {
-	case $(echo "$screens" | wc -l) in
-		"1") setMonitor "$screens" ;;
-		"2") setMonitor "$(printf $screens | awk 'NR==2')" ;;
-	esac
+
+	if [ "$screens" == "LVDS-1" ]; then
+		setMonitor "$screens"
+	else
+		setMonitor "$(printf "$screens" | awk 'NR==2')"
+	fi
+
+	# case $(printf "$screens" | wc -l) in
+	# 	"1") setMonitor "$(printf $screens | awk 'NR==1')" ;;
+	# 	"2") setMonitor "$(printf $screens | awk 'NR==2')" ;;
+	# esac
 }
 
 setMonitor() {

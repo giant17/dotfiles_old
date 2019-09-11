@@ -41,8 +41,8 @@ color   listfocus_unread      black   yellow  bold
 # browser handler.sh
 
 # macro , open-in-browser
-browser "/usr/local/bin/w3m %u"
-macro p set browser "handler.sh"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+browser "/usr/bin/w3m %u"
+macro p set browser "handler.sh"; open-in-browser ; set browser "/usr/bin/w3m %u"
 
 # macro t set browser "yt.sh -v %u"; open-in-browser ; set browser "$BROWSER %u"
 # macro a set browser "yt.sh -a %u"; open-in-browser ; set browser "$BROWSER %u"
