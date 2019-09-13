@@ -3,6 +3,16 @@
 # Script for various backup solutions
 
 internet() { ping -q -c 1 1.1.1.1 > /dev/null || exit ;}
+back() { rsync -avP --delete $1 $2 ;}
+
+dockBackup() {
+	back $HOME/archive /mnt/dock/backup
+	back $HOME/repos /mnt/dock/backup
+}
+
+
+
+
 remoteBackup() {
 	internet
 	for folder in $(ls $HOME); do

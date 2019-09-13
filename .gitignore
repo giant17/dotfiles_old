@@ -18,3 +18,7 @@ ncmpcpp/.config/mpd/state
 ncmpcpp/.config/mpd/sticker.sql
 ncmpcpp/.config/ncmpcpp/error.log
 taskwarrior/file./
+beets/.config/beets/musiclibrary.db
+abook/.config/abook/addressbook~
+beets/.config/beets/state.pickle
+qutebrowser/.config/qutebrowser/autoconfig.yml

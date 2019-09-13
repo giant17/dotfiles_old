@@ -363,7 +363,9 @@ keymap  C-x  COMMAND  "SET_OPTION fold_line=toggle ; RESHAPE"
 #keymap C-x MOUSE_TOGGLE
 #keymap C-v PIPE_SHELL
 
+
 keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
+# keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; GOTO ~/.w3m/cgi-bin/goto_clipboard.cgi"
 keymap  XS      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; TAB_GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
 
 

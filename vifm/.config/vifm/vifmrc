@@ -32,12 +32,15 @@ colorscheme default
 
 " COMMANDS
 
-command! cdfzf :set noquickview | :execute 'cd "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! cpfzf :set noquickview | :yank | :execute 'copy "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! mvfzf :set noquickview | :yank | :execute 'move! "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! ffzf :set noquickview | :execute 'edit "'.system('cat ~/.config/shortcuts/files | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+""command! cdfzf :set noquickview | :execute 'cd "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+""command! cpfzf :set noquickview | :yank | :execute 'copy "'.system('cat ~/.config/shortcuts/directories | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+""command! cddfzf :set noquickview | :yank | :execute 'move! "'.system('realpath $(find . -maxdepth 1 -type d) | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
+
+
+command! ffzf :set noquickview | :execute 'cd ~' | :execute 'edit "'.system('du -a $(ls ~) | awk ''{print $2}'' | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! dfzf :set noquickview | :execute 'cd ~' | :execute 'cd "'.system('du $(ls ~) | awk ''{print $2}'' | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! pfzf :set noquickview | :execute 'cd ~' | :execute 'cd "'.system('du $(ls ~) | awk ''{print $2}'' | fzf --height 100 2>/dev/tty ').'"%IU' | :execute 'put ' | redraw
 command! gofzf :set noquickview | :execute 'goto "'.system('ls -a | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! cddfzf :set noquickview | :yank | :execute 'move! "'.system('realpath $(find . -maxdepth 1 -type d) | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
 
 
 " BINDINGS
@@ -46,6 +49,7 @@ unmap M
 unmap x
 unmap X
 unmap A
+unmap P
 unmap b
 unmap f
 unmap o
@@ -63,15 +67,17 @@ map gs <C-w>s
 map gv <C-w>v
 map R :restart<CR>
 map cd :cdfzf<CR>
-map C :cpfzf<CR>
-map M :mvfzf<CR>
+" map C :cpfzf<CR>
+" map M :mvfzf<CR>
 map x :!detox -s lower -v %f<CR>
 map X :chmod +x<CR>
 map A :!bookmark.sh %f<CR>
 map Z za
 map b :cddfzf<CR>
-map cf :ffzf<CR>
+map ff :ffzf<CR>
+map fd :dfzf<CR>
 map o :gofzf<CR>
+map P :pfzf <CR>
 map gq :q<CR>
 map mk :mkdir<space>
 map N :!newtemplate.sh<CR>
@@ -82,6 +88,7 @@ map st :!tagger.sh %f <CR>
 map sf :!splitflac.sh %f <CR>
 map ss :!srt.sh %f <CR>
 map sw :!stow -t ~ %f <CR>
+map se :!epub2pdf.sh %f <CR>
 
 
 " ICONS

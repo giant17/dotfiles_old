@@ -37,6 +37,7 @@ alias v="nvim" \
 	x="sxiv -ft *" \
 	bs="bookmark.sh" \
 	guu="git update-index --assume-unchanged" \
+	grr="git rm --cached" \
 	vitw="vit +@internet" \
 	upd="yay -Syu"
 
@@ -46,8 +47,8 @@ stw() {
 	folder=$(ls $REPOS/dotfiles/* | fzf)
 	stow -vt ~ $folder ;}
 
-fs() { ls $HOME/.local/bin/*/* | grep -v '__' | fzf | xargs $EDITOR ;}
-ff() { cat $HOME/.config/shortcuts/files | fzf | xargs -r -I % $EDITOR % ;}
+#fs() { ls $HOME/.local/bin/*/* | grep -v '__' | fzf | xargs $EDITOR ;}
+ff() { cd $HOME && du -a $(ls $HOME) | awk '{print $2}' | fzf | xargs -r -I % $EDITOR % ;}
 fd() {
-	dir=$(cat $HOME/.config/shortcuts/directories | fzf)
+	dir=$(cd $HOME && du $(ls $HOME) | awk '{print $2}' | fzf)
 	cd $dir && ls -a ;}

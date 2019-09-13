@@ -65,3 +65,11 @@ snippet rpr "[PROMPT] Rofi" b
 prompt() { printf "\$1" | rofi -dmenu -i -p "\$2" ;}
 $0
 endsnippet
+
+snippet ext "Quit option" b
+ext() {
+	if [[ "\$1" == "Quit" ]]; then
+		notify-send "Exiting" ; exit 1
+	fi ;}
+$0
+endsnippet

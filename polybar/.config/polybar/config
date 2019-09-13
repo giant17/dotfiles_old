@@ -63,7 +63,7 @@ font-0 = "FantasqueSansMono Nerd Font Mono:size=10"
 
 modules-left = i3
 modules-center =
-modules-right = s mpd d pulseaudio d upgrade d cpu d temperature d memory d wlan eth d battery d date
+modules-right = s mpd d pulseaudio d cal d cpu d temperature d memory d wlan eth d battery d date
 
 tray-position = right
 tray-padding = 2
@@ -205,9 +205,9 @@ format-background = ${colors.background}
 
 [module/cal]
 type = custom/script
-exec = sh ~/.scripts/statusbar/cal.sh
+exec = sh ~/.local/bin/polybar/cal.sh
 interval = 30
-format-prefix = "   "
+format-prefix = " "
 label =  %output%
 click-left = notify-send "$(calcurse -D ~/.config/calcurse -a)"
 format-background = ${colors.background}

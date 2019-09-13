@@ -10,11 +10,16 @@ endif
 
 " List of plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'daeyun/vim-matlab'
+Plug 'tpope/vim-markdown'
+Plug 'reedes/vim-pencil'
 Plug 'zchee/deoplete-jedi'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'vim-syntastic/syntastic', {'for': 'python'}
+" Plug 'vim-syntastic/syntastic', {'for': 'python'}
+Plug 'neomake/neomake'
 Plug 'nvie/vim-flake8'
 Plug 'xarthurx/taskwarrior.vim', {'on': 'TW' }
 Plug 'SirVer/ultisnips'
@@ -41,7 +46,6 @@ Plug 'jpalardy/vim-slime'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-octave'
-Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
@@ -81,6 +85,7 @@ if has("autocmd")
 syntax enable
 set background=dark
 colorscheme solarized
+"colorscheme wal
 
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
@@ -120,7 +125,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " Markdown
 let g:table_mode_map_prefix = '<leader>m'		" Enable table mode
 " Set vim wiki
-let g:vimwiki_list = [{'path': '~/archive/wiki',
+let g:vimwiki_list = [{'path': '~/.wiki',
 	                  \'syntax': 'markdown', 'ext': '.md',}]
 
 let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
@@ -136,15 +141,30 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd FileType tex set complete+=kspell
 autocmd FileType tex setlocal spell
 
+call deoplete#custom#var('omni', 'input_patterns', {
+			\ 'tex': g:vimtex#re#deoplete
+			\})
+
 " Vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
-let g:tex_conceal = ''
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g_tex_conceal='abdmg'
+"let g:tex_conceal = ''
 let g:vimtex_fold_manual = 1
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 autocmd FileType tex nnoremap <leader>c :VimtexCompile<cr>
 autocmd FileType tex nnoremap <leader>w :VimtexCountWords<cr>
+
+" autocmd FileType mail,tex,markdown,vimwiki nnoremap <leader>s :PencilToggle<cr>
+
+
+augroup vimtex_config
+  au!
+  au User VimtexEventQuit call vimtex#compiler#clean(0)
+augroup END
 
 " Filetype
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
@@ -174,6 +194,10 @@ let g:pymode_rope = 0
 let g:pymode_folding=0
 
 " Ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 let g:loaded_python_provider = 1
 let g:python_host_skip_check=1
 let g:python_host_prog = '/usr/bin/python'
@@ -183,6 +207,7 @@ let g:UltiSnipsSnippetDir=["~/.config/nvim/UltiSnips"]
 let g:vimwiki_table_mappings = 0
 nmap <leader>b :UltiSnipsEdit<cr>
 let g:vimwiki_autowriteall = 1
+
 
 " Neoterm
 
@@ -205,7 +230,11 @@ let g:neoterm_repl_octave_qt = 1 " Activate Qt widgets for Octave
 let g:SimpylFold_docstring_preview=1
 let python_highlight_all=1
 
+" let g:pymode_doc = 1
+" let g:pymode_doc_bind = 'K'
 
+" let g:pymode_run = 1
+" let g:pymode_run_bind = '<leader>r'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -215,3 +244,27 @@ let g:deoplete#sources#jedi#show_docstring = 1
 
 
 xmap ga <Plug>(EasyAlign)
+
+" Vifm
+nnoremap <leader>n :Vifm<CR>
+
+
+" Cursor
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
+" Neomake
+
+" Run NeoMake on read and write operations
+autocmd! BufReadPost,BufWritePost * Neomake
+
+" Disable inherited syntastic
+let g:syntastic_mode_map = {
+  \ "mode": "passive",
+  \ "active_filetypes": [],
+  \ "passive_filetypes": [] }
+
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
+
+

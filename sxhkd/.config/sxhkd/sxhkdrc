@@ -33,9 +33,11 @@ super + y; p
 	process.sh
 super + y; w
 	workout.sh
+super + y; f
+	getFlashcard.sh
 #super + y; j
 # 5 minute journal
-#super + y; w
+#super + y; r
 #weeekly review - add to calendar
 
 
@@ -47,10 +49,10 @@ super + v
 super + F6
 	torwrap.sh
 super + shift + Escape
-	killXorg.sh
-super + grave; e
-	rofimoji
-super + grave; f
+	quitMenu.sh
+# super + grave; e
+# 	rofimoji
+super + grave
 	getFontawesome.sh
 super + F9
 	mount.sh

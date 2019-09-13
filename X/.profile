@@ -25,10 +25,11 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export PYTHONPATH="$HOME/.local/bin/python:${PYTHONPATH}:$HOME/.scripts/python"
 export BIB="$HOME/documents/latex/bibliography.bib"
 export TEXMFHOME="$HOME/.config/texmf"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!.git/*"'
 
 #source $HOME/.cache/wal/colors.sh
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-mpd > /dev/null 2>&1 &
+mpd > /dev/null 2>&1
 
 #Autostart startx
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx

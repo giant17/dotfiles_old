@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Notify if battery is low
+
+[ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ] && exit
+[ "$(cat /sys/class/power_supply/BAT0/capacity)" -lt 25 ] &&
+/usr/bin/notify-send -u critical " ATTENTION " "Battery critically low."
