@@ -39,13 +39,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'lervag/vimtex'
-Plug 'jvirtanen/vim-octave'
+" Plug 'jvirtanen/vim-octave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jpalardy/vim-slime'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'junegunn/vim-easy-align'
-Plug 'jvirtanen/vim-octave'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
@@ -223,7 +222,7 @@ vnoremap <leader>c :TREPLSendSelection<cr>
 map <leader>tt :Tnew<cr>
 map <leader>tc :Tclear!<cr>
 map <leader>tk :Tkill!<cr>
-au VimEnter,BufRead,BufNewFile *.m set filetype=octave
+" au VimEnter,BufRead,BufNewFile *.m set filetype=octave
 let g:neoterm_repl_octave_qt = 1 " Activate Qt widgets for Octave
 
 " Python
