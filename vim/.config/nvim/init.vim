@@ -12,6 +12,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'daeyun/vim-matlab'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'yinflying/matlab.vim'
 Plug 'tpope/vim-markdown'
 Plug 'reedes/vim-pencil'
