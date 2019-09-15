@@ -55,7 +55,7 @@ config.bind(',o', 'spawn --userscript dmenu-open')
 # bind Ø spawn tsp youtube-dl -o "~/Music/Downloads/%(title)s.%(ext)s" -c -x --audio-format "mp3" --audio-quality 0 --restrict-filenames {url}
 
 ## Download directory
-c.downloads.location.directory = '/home/gian/downloads'
+c.downloads.location.directory = '/home/gian/Downloads'
 c.downloads.location.prompt = False
 
  ## SEARCH ENGINES

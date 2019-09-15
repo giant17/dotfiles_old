@@ -26,6 +26,7 @@ export PYTHONPATH="$HOME/.local/bin/python:${PYTHONPATH}:$HOME/.scripts/python"
 export BIB="$HOME/documents/latex/bibliography.bib"
 export TEXMFHOME="$HOME/.config/texmf"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!.git/*"'
+export MATLAB_LOG_DIR='/var/log'
 
 #source $HOME/.cache/wal/colors.sh
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"

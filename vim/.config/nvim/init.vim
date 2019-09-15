@@ -12,6 +12,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'daeyun/vim-matlab'
+Plug 'yinflying/matlab.vim'
 Plug 'tpope/vim-markdown'
 Plug 'reedes/vim-pencil'
 Plug 'zchee/deoplete-jedi'
@@ -48,6 +49,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+call neomake#configure#automake('w')
 "" GENERAL
 let mapleader =","				" Set leader key to ,
 syntax on						" Syntax detection TODO polyglot

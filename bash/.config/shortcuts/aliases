@@ -37,9 +37,11 @@ alias v="nvim" \
 	x="sxiv -ft *" \
 	bs="bookmark.sh" \
 	guu="git update-index --assume-unchanged" \
+	guud="git update-index --assume-unchanged $(git ls-files | tr '\n' ' ')" \
 	grr="git rm --cached" \
 	vitw="vit +@internet" \
-	upd="yay -Syu"
+	upd="yay -Syu" \
+	sss="ssh gian@gianlucatadori.xyz"
 
 
 
