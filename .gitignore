@@ -25,3 +25,5 @@ qutebrowser/.config/qutebrowser/autoconfig.yml
 anki/.local/share/Anki2/Utente 1/
 anki/.local/share/Anki2/crash.log
 transmission/.config/transmission-daemon/torrents/
+transmission/.config/transmission-daemon/dht.dat
+transmission/.config/transmission-daemon/resume/
