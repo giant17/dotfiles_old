@@ -5,14 +5,6 @@
 internet() { ping -q -c 1 1.1.1.1 > /dev/null || exit ;}
 back() { rsync -avP --delete $1 $2 ;}
 
-dockBackup() {
-	back $HOME/archive /mnt/dock/backup
-	back $HOME/repos /mnt/dock/backup
-}
-
-
-
-
 remoteBackup() {
 	internet
 	for folder in $(ls $HOME); do
@@ -22,12 +14,26 @@ remoteBackup() {
 	done
 }
 
+
+localBackup() {
+	dest="/home/.backup"
+	back $HOME/Archive/data $dest
+	back $HOME/Projects $dest
+}
+
+dataBackup() {
+	dest=$HOME/Archive/data
+	back $HOME/.wiki $dest/Wiki
+	back $HOME/.task $dest/Todos
+	back $HOME/.config/abook/addressbook $dest/Contacts
+	back $HOME/.config/calcurse/apts $dest/Calendar
+	rsync -avP --delete ~/.local/share/Anki2/Utente\ 1 $dest/Flashcards
+}
+
 dockBackup() {
 	[ -z $(isDock=$(lsblk | grep 'dock')) ] && exit
 
 }
-
-
 
 case "$1" in
 	"--remote") remoteBackup;;
@@ -35,13 +41,3 @@ case "$1" in
 	"--local") localBackup;;
 	"--data") dataBackup;;
 esac
-
-
-sync() {
-	for x in $data; do
-		rsync -avP --delete -e ssh "$1" "$backup"
-	done
-}
-
-internet
-sync
