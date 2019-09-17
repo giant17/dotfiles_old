@@ -4,8 +4,10 @@
 
 internet() { ping -q -c 1 1.1.1.1 > /dev/null || exit ;}
 
+REPOS=$HOME/Projects
 pushRepo() {
-	for repo in $REPOS/*;do
+	repos=$(find $REPOS -maxdepth 2 -mindepth 2 -type d)
+	for repo in $repos;do
 		git -C $repo push origin master > /dev/null || continue
 	done
 }
