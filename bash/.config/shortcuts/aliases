@@ -41,7 +41,8 @@ alias v="nvim" \
 	grr="git rm --cached" \
 	vitw="vit +@internet" \
 	upd="yay -Syu" \
-	sss="ssh gian@gianlucatadori.xyz"
+	sss="ssh gian@gianlucatadori.xyz" \
+	install="sudo apt-get install"
 
 
 

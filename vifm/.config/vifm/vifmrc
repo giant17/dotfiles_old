@@ -80,6 +80,7 @@ map o :gofzf<CR>
 map P :pfzf <CR>
 map gq :q<CR>
 map mk :mkdir<space>
+map mf :touch<space>
 map N :!newtemplate.sh<CR>
 map r :rename<CR>
 map sx :!pptx2pdf.sh %f &<CR>

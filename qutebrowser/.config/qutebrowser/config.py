@@ -91,7 +91,7 @@ c.statusbar.widgets = ["keypress", "progress", "url", "scroll"]
 c.content.user_stylesheets = ['themes/solarized-dark.css']
 c.url.default_page = 'about:blank'
 c.url.start_pages = 'about:blank'
-config.bind(',n' , 'config-cycle content.user_stylesheets themes/solarized-dark.css ""')
+config.bind(',n' , '"" config-cycle content.user_stylesheets themes/solarized-dark.css')
 # TODO: change back to original theme
 
 ## FONTS

@@ -79,3 +79,7 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	lmc.sh up
 
+XF86MonBrightnessDown
+	xbacklight -dec 15
+XF86MonBrightnessUp
+	xbacklight -inc 15

@@ -1,6 +1,6 @@
 ncmpcpp_directory = ~/.config/ncmpcpp
-lyrics_directory = ~/media/music/.lyrics
-mpd_music_dir = "~/media/music"
+lyrics_directory = ~/Music/.Lyrics
+mpd_music_dir = "~/Music"
 
 startup_screen = media_library
 visualizer_in_stereo = "no"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Get rofi menu for choosing symbols
 

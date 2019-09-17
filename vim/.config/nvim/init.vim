@@ -51,6 +51,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+" Shortcut for writing with sudo permissions
+cmap w!! w suda://%
+
 call neomake#configure#automake('w')
 "" GENERAL
 let mapleader =","				" Set leader key to ,
