@@ -1,0 +1,8 @@
+#!/bin/sh
+
+search=$(echo "$2" | sed 's| |+|g')
+case "$1" in
+	"ddg") echo "https://duckduckgo.com/?q=$search";;
+	"*") error "Engine not present";;
+esac
+

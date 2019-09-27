@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tmuxSession=$(printf "$(tmux ls | sed 's|:| |g ; s|-| |g' | awk '{print $1}')" | dmenu -i -p "Tmux session:")
+tmux attach -t $tmuxSession
