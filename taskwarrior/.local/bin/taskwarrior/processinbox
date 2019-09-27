@@ -10,7 +10,7 @@
 
 error() { notify-send " ERROR" "$1"; exit 1;}
 require() {	ifinstalled taskwarrior rofi ;}
-dprompt() { printf "$1" | rofi -dmenu -i -p "$2" ;}
+dprompt() { printf "$1" | dmenu -i -p "$2" ;}
 check() { notify-send " Added." "$1";}
 
 ext() {
