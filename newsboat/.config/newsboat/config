@@ -30,13 +30,18 @@ bind-key ^t next-unread
 # color info red black bold
 # color article cyan default
 
-color   background    default     default
-color   listnormal    default     default
-color   listfocus     black       yellow
-color   info          default     black
-color   article       default     default
-color   listnormal_unread     default default bold
-color   listfocus_unread      black   yellow  bold
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  default   default
+color listfocus          yellow	   default     
+color listfocus_unread   yellow    black
+color info               default   black
+color article            default   default
+
+# highlights
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
 
 # browser handler.sh
 
