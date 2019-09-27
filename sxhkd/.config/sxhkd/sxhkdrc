@@ -1,16 +1,51 @@
-# terminal emulator
+
+# APPS
+
+# terminal 
 super + Return
 	$TERMINAL
 
-# program launcher
+# launcher
 super + d
-	rofi -show drun
+	dmenu_run
 
-# execute apps
-# super + w
-# 	notify-send "Starting Browser..." -t 1000  && $BROWSER
+# tmux sessions
+super + super
+	$TERMINAL -e findSessions
+
+# music 
+super + shift + m
+	$TERMINAL -e launchTmux 'music' 'cmus'
+
+# browser cli 
 super + w
-	duck.sh
+	$TERMINAL -e launchTmux 'web' 'w3m -v'
+
+# Browser gui
+super + shift + w
+	$BROWSER
+
+# rss  
+super + n
+	$TERMINAL -e launchTmux 'news' 'newsboat'
+
+# file manager
+super + r
+	$TERMINAL -e vifm
+
+
+
+
+## MANAGEMENT
+
+# Inbox
+super + y; y
+	addinbox
+
+# Process
+super + y; p
+	processinbox
+
 
 super  + F1
 	new_app.sh
@@ -27,8 +62,6 @@ super + n
 	$TERMINAL -e newsboat
 
 # GTD shortcuts
-super + y; y
-	inbox.sh
 super + y; p
 	process.sh
 super + y; w
