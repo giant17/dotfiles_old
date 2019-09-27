@@ -175,17 +175,16 @@ keymap ef       PEEK_LINK					#Show link under cursor.
 #external browser command linked to the prefix number.
 #See "External Program Settings" in "Option Setting Panel"(OPTIONS)
 #Open current link with external browser = sensible browser
-keymap M-o      EXTERN
+keymap M      EXTERN
 #copy current url and remove newline at the end.
-keymap yy       EXTERN     copy_url.sh
-keymap yp       EXTERN     to_pdf.sh
+keymap yy       EXTERN     copy_url
+keymap yp       EXTERN     topdf
 #keymap yy       EXTERN     "echo -n %s | xclip -i -selection clipboard"
 #keymap yy       EXTERN     "echo -n %s | xsel -b"
 #open link under cursor with external browser = sensible browser
 keymap M-p      EXTERN_LINK
 #Copy link under cursor, It does not copy images urls
-#keymap yf       EXTERN_LINK 'env printf %s "$0" | xsel -b'
-keymap yf       EXTERN_LINK  copy_url.sh
+keymap yf       EXTERN_LINK 'env printf %s "$0" | xsel -b'
 #follow link in clipboard in the current tab.
 keymap p 	GOTO		/usr/lib/w3m/cgi-bin/goto_clipboard.cgi
 #follow link in clipboard in new foreground tab.
@@ -364,9 +363,8 @@ keymap  C-x  COMMAND  "SET_OPTION fold_line=toggle ; RESHAPE"
 #keymap C-v PIPE_SHELL
 
 
-keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
-# keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; GOTO ~/.w3m/cgi-bin/goto_clipboard.cgi"
-keymap  XS      COMMAND       "SHELL ~/.w3m/cgi-bin/surfraw.cgi ; TAB_GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
+keymap  xs      COMMAND       "SHELL ~/.local/bin/w3m/duckcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
+keymap  XS      COMMAND       "SHELL ~/.local/bin/w3m/surfrawcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
 
 
 keymap i VIEW_IMAGE

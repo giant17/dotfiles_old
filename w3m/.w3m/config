@@ -58,6 +58,8 @@ vi_prec_num 0
 mark_all_pages 0
 wrap_search 0
 ignorecase_search 1
+use_migemo 1
+migemo_command cmigemo -q -d /usr/share/cmigemo/utf-8/migemo-dict
 use_mouse 1
 reverse_mouse 0
 relative_wheel_scroll 0
@@ -70,7 +72,7 @@ preserve_timestamp 1
 keymap_file keymap
 document_root 
 personal_document_root 
-cgi_bin 
+cgi_bin ~/.local/bin/w3m
 index_file 
 mime_types ~/.mime.types, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
@@ -78,7 +80,7 @@ urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
 editor /usr/bin/vi
 mailto_options 1
 mailer /usr/bin/mail
-extbrowser /usr/bin/qutebrowser
+extbrowser $BROWSER
 extbrowser2 
 extbrowser3 
 extbrowser4 
@@ -112,6 +114,7 @@ max_news 50
 use_proxy 1
 http_proxy 
 https_proxy 
+gopher_proxy 
 ftp_proxy 
 no_proxy 
 noproxy_netaddr 1
