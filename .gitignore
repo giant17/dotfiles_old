@@ -29,3 +29,4 @@ transmission/.config/transmission-daemon/dht.dat
 transmission/.config/transmission-daemon/resume/
 w3m/.w3m/cookie
 w3m/.w3m/history
+README.md
