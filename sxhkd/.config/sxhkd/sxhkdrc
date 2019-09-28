@@ -1,7 +1,7 @@
 
 # APPS
 
-# terminal 
+# terminal
 super + Return
 	$TERMINAL
 
@@ -10,14 +10,14 @@ super + d
 	dmenu_run
 
 # tmux sessions
-super + super
-	$TERMINAL -e findSessions
+super + Tab
+ 	$TERMINAL -e findTmux
 
-# music 
-super + shift + m
+# music
+super + m
 	$TERMINAL -e launchTmux 'music' 'cmus'
 
-# browser cli 
+# browser cli
 super + w
 	$TERMINAL -e launchTmux 'web' 'w3m -v'
 
@@ -25,13 +25,17 @@ super + w
 super + shift + w
 	$BROWSER
 
-# rss  
+# rss
 super + n
 	$TERMINAL -e launchTmux 'news' 'newsboat'
 
 # file manager
 super + r
-	$TERMINAL -e vifm
+	$TERMINAL -e $FILE
+
+# mail
+super + e
+	$TERMINAL -e launchTmux 'mail' 'neomutt'
 
 
 
@@ -49,17 +53,6 @@ super + y; p
 
 super  + F1
 	new_app.sh
-
-# File manager
-super + r
-	$TERMINAL -e vifmrun
-
-super + e
-	$TERMINAL -e neomutt
-super + m
-	$TERMINAL -e ncmpcpp
-super + n
-	$TERMINAL -e newsboat
 
 # GTD shortcuts
 super + y; p

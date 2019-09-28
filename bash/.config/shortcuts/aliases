@@ -27,13 +27,13 @@ alias v="nvim" \
 	kl="killall" \
 	scim="sc-im" \
 	z="zathura" \
+	YT="youtube-viewer" \
 	f="vifmrun" \
 	yt="yt.sh -v" \
 	yta="yt.sh -a" \
 	ytp="yt.sh -p" \
 	cal="calcurse -D $HOME/.config/calcurse" \
-	appd="sc-im $HOME/repos/debian-installer/debian-apps.csv" \
-	appa="sc-im $HOME/repos/LARBS/progs.csv" \
+	app="sc-im $HOME/Projects/Setup/installer/apps/laptop.csv" \
 	x="sxiv -ft *" \
 	bs="bookmark.sh" \
 	guu="git update-index --assume-unchanged" \
@@ -42,7 +42,8 @@ alias v="nvim" \
 	vitw="vit +@internet" \
 	upd="yay -Syu" \
 	sss="ssh gian@gianlucatadori.xyz" \
-	install="sudo apt-get install"
+	install="sudo apt-get install" \
+	mt="ptb3-matlab -nodesktop -nosplash"
 
 
 

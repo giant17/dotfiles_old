@@ -70,14 +70,14 @@ decode_cte 0
 auto_uncompress 0
 preserve_timestamp 1
 keymap_file keymap
-document_root 
-personal_document_root 
+document_root ~/Downloads
+personal_document_root ~/Downloads
 cgi_bin ~/.local/bin/w3m
 index_file 
-mime_types ~/.mime.types, /usr/etc/mime.types
+mime_types ~/.config/mimeapps.list, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
-urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
-editor /usr/bin/vi
+urimethodmap ~/.w3m/urimethodmap
+editor $EDITOR
 mailto_options 1
 mailer /usr/bin/mail
 extbrowser $BROWSER

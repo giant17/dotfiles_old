@@ -28,7 +28,7 @@ set nohlsearch
 set incsearch
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set trash
-colorscheme default
+colorscheme solarized-dark
 
 " COMMANDS
 
@@ -90,6 +90,7 @@ map sf :!splitflac.sh %f <CR>
 map ss :!srt.sh %f <CR>
 map sw :!stow -t ~ %f <CR>
 map se :!epub2pdf.sh %f <CR>
+map sg :!nvim -c MagitOnly %f <CR>
 
 
 " ICONS
