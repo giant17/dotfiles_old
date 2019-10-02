@@ -1,33 +1,26 @@
-
-# APPS
-
-# terminal
 super + Return
 	$TERMINAL
-
-# launcher
 super + d
 	dmenu_run
-
-# tmux sessions
-super + Tab
- 	$TERMINAL -e findTmux
-
 # music
 super + m
 	$TERMINAL -e launchTmux 'music' 'cmus'
 
 # browser cli
 super + w
-	$TERMINAL -e launchTmux 'web' 'w3m -v'
+	$TERMINAL -e launchTmux 'web' 'w3m -config $HOME/.config/w3m/config -v'
 
 # Browser gui
 super + shift + w
 	$BROWSER
 
+# calendar
+super + y
+	$TERMINAL -e launchTmux 'calendar' 'calcurse -D $HOME/.config/calcurse'
+
 # rss
 super + n
-	$TERMINAL -e launchTmux 'news' 'newsboat'
+	$TERMINAL -e newsboat
 
 # file manager
 super + r
@@ -35,10 +28,15 @@ super + r
 
 # mail
 super + e
-	$TERMINAL -e launchTmux 'mail' 'neomutt'
+	$TERMINAL -e neomutt
 
+# Matlab
+super + shift + m
+	$TERMINAL -e launchTmux 'matlab' "vifm $REPOS/matlab"
 
-
+# Brainstorm
+super + b
+	tmuxBrainstorm
 
 ## MANAGEMENT
 

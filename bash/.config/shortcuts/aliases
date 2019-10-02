@@ -33,26 +33,19 @@ alias v="nvim" \
 	yta="yt.sh -a" \
 	ytp="yt.sh -p" \
 	cal="calcurse -D $HOME/.config/calcurse" \
-	app="sc-im $HOME/Projects/Setup/installer/apps/laptop.csv" \
+	app="sc-im $HOME/repos/setup/installer/apps/laptop.csv" \
 	x="sxiv -ft *" \
 	bs="bookmark.sh" \
 	guu="git update-index --assume-unchanged" \
-#	guud="git update-index --assume-unchanged $(git ls-files | tr '\n' ' ')" \
 	grr="git rm --cached" \
 	vitw="vit +@internet" \
 	upd="yay -Syu" \
 	sss="ssh gian@gianlucatadori.xyz" \
 	install="sudo apt-get install" \
-	mt="ptb3-matlab -nodesktop -nosplash"
+	mtl="ptb3-matlab -nodesktop -nosplash" \
+	jw="nvim -c VimwikiMakeDiaryNote" \
+	abok="abook -C $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/addressbook" \
+	w3m="w3m -config $HOME/.config/w3m/config -v"
 
+fs() { du -a $HOME/.local/bin/**/* $HOME/.config/ $HOME/.xprofile $HOME/.xinitrc $HOME/.profile $HOME/.tmux.conf | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
-
-stw() {
-	folder=$(ls $REPOS/dotfiles/* | fzf)
-	stow -vt ~ $folder ;}
-
-#fs() { ls $HOME/.local/bin/*/* | grep -v '__' | fzf | xargs $EDITOR ;}
-ff() { cd $HOME && du -a $(ls $HOME) | awk '{print $2}' | fzf | xargs -r -I % $EDITOR % ;}
-fd() {
-	dir=$(cd $HOME && du $(ls $HOME) | awk '{print $2}' | fzf)
-	cd $dir && ls -a ;}

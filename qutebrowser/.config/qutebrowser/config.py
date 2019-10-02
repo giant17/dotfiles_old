@@ -37,25 +37,15 @@ config.bind(',p', 'hint links spawn tsp mpv {hint-url}')
 config.bind(',m', 'spawn tsp mpv {url}')
 # config.bind(',yt','hint links spawn tsp youtube-dl -o "~/downloads/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {hint-url};;spawn tsp notify-send "ciao"')
 config.bind(',yt',yt)
-config.bind(',ya', 'hint links spawn tsp youtube-dl -x -f bestaudio/best -o "~/downloads/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {hint-url}')
-config.bind(',ymm', 'spawn tsp youtube-dl -o "~/downloads/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {url}')
-config.bind(',yma', 'hint links spawn tsp youtube-dl -x -f bestaudio/best -o "~/downloads/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {url}')
+config.bind(',ya', 'hint links spawn tsp youtube-dl -x -f bestaudio/best -o "~/dl/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {hint-url}')
+config.bind(',ymm', 'spawn tsp youtube-dl -o "~/dl/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {url}')
+config.bind(',yma', 'hint links spawn tsp youtube-dl -x -f bestaudio/best -o "~/ld/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {url}')
 config.bind(',o', 'spawn --userscript dmenu-open')
 # :bind ,O spawn --userscript dmenu-open --tab
 
-# bind  hint links spawn tsp mpv {hint-url}
-# # Open current video in mpv
-# bind Æ spawn tsp mpv {url}
-# Download video i hints
-# Download video currently playing
-# bind Å spawn tsp youtube-dl -o "~/downloads/%(upload_date)s-%(title)s.%(ext)s" --restrict-filenames {url}
-# # Download music in hints
-# bind ø hint links spawn tsp youtube-dl -o "~/Music/Downloads/%(title)s.%(ext)s" -c -x --audio-format "mp3" --audio-quality 0 --restrict-filenames {hint-url}
-# # Download music currently playing
-# bind Ø spawn tsp youtube-dl -o "~/Music/Downloads/%(title)s.%(ext)s" -c -x --audio-format "mp3" --audio-quality 0 --restrict-filenames {url}
 
 ## Download directory
-c.downloads.location.directory = '/home/gian/Downloads'
+c.downloads.location.directory = '/home/gian/dl'
 c.downloads.location.prompt = False
 
  ## SEARCH ENGINES

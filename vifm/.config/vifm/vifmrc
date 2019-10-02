@@ -55,6 +55,7 @@ unmap f
 unmap o
 unmap N
 unmap r
+unmap q
 
 nnoremap w :view<cr>
 map gh <C-W><C-H>
@@ -65,6 +66,7 @@ map gq <C-W><C-Q>
 map go <C-w>o
 map gs <C-w>s
 map gv <C-w>v
+map q :quit<CR>
 map R :restart<CR>
 map cd :cdfzf<CR>
 " map C :cpfzf<CR>

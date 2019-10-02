@@ -1,3 +1,52 @@
 # TECHNOLOGY
 
 https://www.archlinux.org/feeds/news/ "~Arch Linux" "tech" "news"
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith" "tech"
+https://www.machinelearningmastery.com/feed/ "~Machine Learning Mastery" "tech"
+https://www.youtube.com/feeds/videos.xml?user=sentdex "~Sentdex" "tech"
+https://www.youtube.com/feeds/videos.xml?user=consumerchampion "~Python Programmer" "tech" https://www.youtube.com/feeds/videos.xml?channel_id=UCWN3xxRkmTPmbKwht9FuE5A "~Siraj Raval" "tech"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~Distro Tube" "tech" "videos"
+https://vitalyparnas.com/ "Vitaly Parnas"
+
+## Politics
+https://www.qmap.pub/api/rss?lang=en "~Qanon" "pol" https://www.theepochtimes.com/c-us/feed/ "~Epoch Times" "pol" https://www.atlanticoquotidiano.it/feed "~Atlantico Quotidiano" "pol"
+https://www.saraacarter.com/feed/ "~Sara Carter" "pol"
+https://www.youtube.com/feeds/videos.xml?user=MarkDice "~Mark Dice" "pol"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCCsiAKRKcgzA_372WbXNBaw "~Steve Turley" "pol"
+https://www.youtube.com/feeds/videos.xml?user=Cartanimation "~Freedom Tunes" "pol"
+https://www.youtube.com/feeds/videos.xml?user=PrisonPlanetLive "~Paul Joseph Watson" "pol"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=realDonaldTrump "~Donald Trump" "pol"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=matteosalvinimi "~Matteo Salvini" "pol"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=prayingmedic "~Prayingmedic" "pol"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=g_occhionero "~Giulio Occhionero" "pol"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=jsolomonReports "~John Solomon" "pol"
+https://www.grrrgraphics.com/feed "~Grrr Graphics" "pol"
+
+## Truth
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxC2RlwWGHnwXanvHNBmw2w "~Edge of Wonders" "truth"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQ7VgW7XgJQjDEPnOR-Q0Qw "~Dustin Nemos" "truth"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMVTRzCXvIbdK0Y1ZxD-BlA "~Destroying the Illusion" "truth"
+https://www.twitrss.me/mobile_twitter_to_rss/?user=Jordan_Sather_ "~Jordan Sather" "truth"
+https://www.exopolitics.org/feed/ "~Exopolitics" "truth"
+
+## Health
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqYPhGiB9tkShZorfgcL2lA "~What I've Learned" "health"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC70SrI3VkT1MXALRtf0pcHg "~Thomas DeLauer" "health"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1Aq3T1GmKcObLqo1YIU_Ww "~Bulletproof" "health"
+http://peterattiadrive.libsyn.com/rss "~Peter Attia" "health"
+https://rss.art19.com/bulletproof-radio "~Bulletproof Radio" "health"
+
+## Neuroscience
+https://invidio.us/feed/channel/UCUgZq9PkDp1xaEivtcfJPSg "~Neuroscientifically Challenged" "neuro"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUR_LsXk7IYyueSnXcNextQ "~Mike Cohen" "neuro"
+
+# Papers
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=14EXV6AaFU8gtrIBDiX39uYbnF9GgqDcSaXx76T1QxkrhLgYAW "~Neurofeedback" "papers"
+
+## Self-Improvement
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBIt1VN5j37PVM8LLSuTTlw "~Improvement Pill" "self-improvement"
+
+## Releases
+https://github.com/gokcehan/lf/releases.atom "~lf" "releases"
+https://github.com/ytdl-org/youtube-dl/releases.atom "~youtube-dl" "releases"

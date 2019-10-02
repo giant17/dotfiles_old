@@ -1,0 +1,5 @@
+#!/bin/sh
+
+size=$(du -s .local/share/vifm/Trash | awk '{print $1}')
+
+[ "$size" -ge "10000000" ] && notify-send -u critical " ATTENTION " "Trash full"

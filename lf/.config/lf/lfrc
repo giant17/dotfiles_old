@@ -14,8 +14,8 @@ map i $~/.config/lf/pv.sh $f | less -R
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 20
-set icons
-set drawbox on
+# set icons
+# set drawbox on
 set icons
 set info size
 # set info name
@@ -164,7 +164,7 @@ map X detox
 map P perms
 map D trash
 map T tagger
-# map D delete
+map D delete
 map C copyto
 map M moveto
 map Z push zh
@@ -172,10 +172,10 @@ map I !du -sh $f
 map a push %mkdir<space>
 map r push :rename<space>
 map <enter> shell
-# map R reload
+map R reload
 map o $lf -remote "send $id select '$(fzf)'"
 map R $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 # map o open
-#map X !$f
+map X !$f
 #map o &mimeopen $f
 #map O $mimeopen --ask $f
