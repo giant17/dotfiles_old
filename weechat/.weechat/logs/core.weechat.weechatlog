@@ -1,0 +1,124 @@
+2019-10-11 15:10:09		Nuova combinazione tasti (contesto "default"): meta-meta-OQ => /bar scroll buflist * e
+2019-10-11 15:10:09		Nuova combinazione tasti (contesto "default"): meta-meta-OP => /bar scroll buflist * b
+2019-10-11 15:10:09		Nuova combinazione tasti (contesto "default"): meta-OQ => /bar scroll buflist * +100%
+2019-10-11 15:10:09		Nuova combinazione tasti (contesto "default"): meta-OP => /bar scroll buflist * -100%
+2019-10-11 15:10:09		Plugin caricati: alias, aspell, buflist, charset, exec, fifo, fset, irc, logger, perl, python, relay, ruby, script, trigger, xfer
+2019-10-11 15:10:24		script: download dell'elenco degli script...
+2019-10-11 15:10:24		script: 362 script per WeeChat 2.3
+2019-10-11 15:10:25		perl: caricamento dello script "/home/gian/.weechat/perl/perlexec.pl"
+2019-10-11 15:10:25		perl: script "perlexec" registrato, versione 0.1 (Execute perl code)
+2019-10-11 15:10:25		python: caricamento dello script "/home/gian/.weechat/python/buffer_autoclose.py"
+2019-10-11 15:10:25		python: script "buffer_autoclose" registrato, versione 0.5 (Automatically close inactive private message buffers)
+2019-10-11 15:10:25		python: caricamento dello script "/home/gian/.weechat/python/go.py"
+2019-10-11 15:10:25		python: script "go" registrato, versione 2.6 (Quick jump to buffers)
+2019-10-11 15:10:26		python: caricamento dello script "/home/gian/.weechat/python/colorize_nicks.py"
+2019-10-11 15:10:26		python: script "colorize_nicks" registrato, versione 26 (Use the weechat nick colors in the chat area)
+2019-10-11 15:10:26		python: caricamento dello script "/home/gian/.weechat/python/autosort.py"
+2019-10-11 15:10:26		python: script "autosort" registrato, versione 3.6 (Flexible automatic (or manual) buffer sorting based on eval expressions.)
+2019-10-11 15:10:26		python: caricamento dello script "/home/gian/.weechat/python/zerotab.py"
+2019-10-11 15:10:26		python: script "zerotab" registrato, versione 1.5 (Will tab complete the last nick in channel without typing anything first. This is good for rapid conversations.)
+2019-10-11 15:10:27		python: caricamento dello script "/home/gian/.weechat/python/urlserver.py"
+2019-10-11 15:10:27		python: script "urlserver" registrato, versione 2.3 (Shorten URLs with own HTTP server)
+2019-10-11 15:10:27		URL server listening on ('127.0.1.1', 42311)
+2019-10-11 15:10:50		Opzione modificata: weechat.bar.status.color_bg = 0  (predefinito: blue)
+2019-10-11 15:10:50		Opzione modificata: weechat.bar.title.color_bg = 0  (predefinito: blue)
+2019-10-11 15:11:04		Opzione modificata: weechat.color.chat_nick_colors = "1,2,3,4,5,6"  (predefinito: "cyan,magenta,green,brown,lightblue,default,lightcyan,lightmagenta,lightgreen,blue")
+2019-10-11 15:11:55		Opzione modificata: buflist.format.hotlist_message = "${color:7}"  (predefinito: "${color:brown}")
+2019-10-11 15:11:55		Opzione modificata: buflist.format.buffer_current = ""${color:,7}${format_buff"  (predefinito: "${color:,blue}${format_buffer}")
+2019-10-11 15:12:04		Opzione modificata: weechat.bar.buflist.position = top  (predefinito: left)
+2019-10-11 15:12:04		Opzione modificata: weechat.bar.buflist.items = "buflist"  (predefinito: "")
+2019-10-11 15:13:13		fifo: pipe chiusa
+2019-10-11 15:13:13		perl: script scaricati
+2019-10-11 15:13:13		URL server stopped
+2019-10-11 15:13:13		python: script scaricati
+2019-10-11 15:18:10		URL server listening on ('127.0.1.1', 40445)
+2019-10-11 15:18:10		script python caricati: autosort, buffer_autoclose, colorize_nicks, go, urlserver, zerotab
+2019-10-11 15:18:10		script perl caricati: perlexec
+2019-10-11 15:18:10		script: 362 script per WeeChat 2.3
+2019-10-11 15:18:10		Plugin caricati: alias, aspell, buflist, charset, exec, fifo, fset, irc, logger, perl, python, relay, ruby, script, trigger, xfer
+2019-10-11 15:18:18		script: script "perlexec.pl" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "buffer_autoclose.py" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "go.py" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "colorize_nicks.py" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "autosort.py" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "zerotab.py" già registrato e aggiornato
+2019-10-11 15:18:18		script: script "urlserver.py" già registrato e aggiornato
+2019-10-11 15:18:18		Opzione modificata: weechat.bar.status.color_bg = 0
+2019-10-11 15:18:18		Opzione modificata: weechat.bar.title.color_bg = 0
+2019-10-11 15:18:18		Opzione modificata: weechat.color.chat_nick_colors = "1,2,3,4,5,6"  (predefinito: "cyan,magenta,green,brown,lightblue,default,lightcyan,lightmagenta,lightgreen,blue")
+2019-10-11 15:18:18		Opzione modificata: weechat.color.chat_highlight = 7  (predefinito: yellow)
+2019-10-11 15:18:18		Opzione modificata: buflist.format.hotlist_message = "${color:7}"  (predefinito: "${color:brown}")
+2019-10-11 15:18:18		Opzione modificata: buflist.format.buffer_current = "${color:,7}${format_buffer}"  (predefinito: "${color:,blue}${format_buffer}")
+2019-10-11 15:18:18		Opzione modificata: weechat.bar.buflist.position = top
+2019-10-11 15:18:18		Opzione modificata: weechat.bar.buflist.items = "buflist"  (predefinito: "")
+2019-10-11 15:18:18		autosort: Sorting rules:
+2019-10-11 15:18:18		    0: ${core_first}
+2019-10-11 15:18:18		    1: ${irc_last}
+2019-10-11 15:18:18		    2: ${buffer.plugin.name}
+2019-10-11 15:18:18		    3: ${irc_raw_first}
+2019-10-11 15:18:18		    4: ${if:${plugin}==irc?${server}}
+2019-10-11 15:18:18		    5: ${if:${plugin}==irc?${info:autosort_order,${type},server,*,channel,private}}
+2019-10-11 15:18:18		    6: ${if:${plugin}==irc?${hashless_name}}
+2019-10-11 15:18:18		    7: ${buffer.full_name}
+2019-10-11 15:18:18		    8: irc.server.*.&* = 0
+2019-10-11 15:18:18		autosort: Sorting rules:
+2019-10-11 15:18:18		    0: ${core_first}
+2019-10-11 15:18:18		    1: ${irc_last}
+2019-10-11 15:18:18		    2: ${buffer.plugin.name}
+2019-10-11 15:18:18		    3: ${irc_raw_first}
+2019-10-11 15:18:18		    4: ${if:${plugin}==irc?${server}}
+2019-10-11 15:18:18		    5: ${if:${plugin}==irc?${info:autosort_order,${type},server,*,channel,private}}
+2019-10-11 15:18:18		    6: ${if:${plugin}==irc?${hashless_name}}
+2019-10-11 15:18:18		    7: ${buffer.full_name}
+2019-10-11 15:18:18		    8: irc.server.*.&* = 0
+2019-10-11 15:18:18		    9: irc.server.*.#* = 1
+2019-10-11 15:18:18		autosort: Sorting rules:
+2019-10-11 15:18:18		    0: ${core_first}
+2019-10-11 15:18:18		    1: ${irc_last}
+2019-10-11 15:18:18		    2: ${buffer.plugin.name}
+2019-10-11 15:18:18		    3: ${irc_raw_first}
+2019-10-11 15:18:18		    4: ${if:${plugin}==irc?${server}}
+2019-10-11 15:18:18		    5: ${if:${plugin}==irc?${info:autosort_order,${type},server,*,channel,private}}
+2019-10-11 15:18:18		    6: ${if:${plugin}==irc?${hashless_name}}
+2019-10-11 15:18:18		    7: ${buffer.full_name}
+2019-10-11 15:18:18		    8: irc.server.*.&* = 0
+2019-10-11 15:18:18		    9: irc.server.*.#* = 1
+2019-10-11 15:18:18		    10: irc.server.*.\*status = 2
+2019-10-11 15:18:18		Opzione modificata: irc.look.server_buffer = independent  (predefinito: merge_with_core)
+2019-10-11 15:18:18		Opzione modificata: weechat.look.hotlist_add_conditions = "${away} || ${buffer} != ${window.buffer}"  (predefinito: "${away} || ${buffer.num_displayed} == 0 || ${info:relay_client_count,weechat,connected} > 0")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_same_nick = "⤷"  (predefinito: "")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_error = "⚠"  (predefinito: "=!=")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_network = "ℹ "  (predefinito: "--")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_action = "⚡"  (predefinito: " *")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.bar_more_down = "▼▼"  (predefinito: "++")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.bar_more_left = "◀◀"  (predefinito: "<<")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.bar_more_right = "▶▶"  (predefinito: ">>")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.bar_more_up = "▲▲"  (predefinito: "--")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_suffix = "╡"  (predefinito: "|")
+2019-10-11 15:18:18		Opzione modificata: weechat.look.prefix_align_max = 15  (predefinito: 0)
+2019-10-11 15:18:18		Opzione modificata: weechat.look.buffer_time_format = "${color:253}%H${color:245}%M"  (predefinito: "%H:%M:%S")
+2019-10-11 15:18:18		Trigger "windowswitch" created
+2019-10-11 15:18:18		Trigger "bufferswitch" created
+2019-10-11 15:18:18		Trigger "force_redraw" created
+2019-10-11 15:18:18		Trigger "detach" created
+2019-10-11 15:18:18		Trigger "reattach" created
+2019-10-11 15:18:18		Trigger "reattach_on_switch" created
+2019-10-11 15:18:18		Notifica modificata per "core.weechat": "all" a "message"
+2019-10-11 15:18:18		Opzione modificata: weechat.look.buffer_notify_default = message  (predefinito: all)
+2019-10-11 15:18:18		Opzione modificata: irc.look.smart_filter = on
+2019-10-11 15:18:18		Filtro "irc_smart" aggiunto:
+2019-10-11 15:18:18		  [irc_smart] buffer: * / tag: irc_smart_filter /regex: * 
+2019-10-11 15:18:18		Filtro "irc_join_names" aggiunto:
+2019-10-11 15:18:18		  [irc_join_names] buffer: * / tag: irc_366,irc_332,irc_333,irc_329,irc_324 /regex: * 
+2019-10-11 15:18:18		Nuova combinazione tasti (contesto "default"): meta-g => /go
+2019-10-11 15:18:18		Tasto "meta-n" non associato (contesto: "default")
+2019-10-11 15:18:18		Nuova combinazione tasti (contesto "default"): meta-n => /bar toggle nicklist
+2019-10-11 15:18:18		URL server stopped
+2019-10-11 15:18:18		URL server listening on ('127.0.1.1', 60211)
+2019-10-11 15:18:18		Opzione modificata: plugins.var.python.urlserver.http_port = "60211"
+2019-10-11 15:18:18		Opzione modificata: logger.file.auto_log = off  (predefinito: on)
+2019-10-11 15:20:49	⚠	Errore: comando "/slack" sconosciuto (digita /help per l'aiuto)
+2019-10-11 15:20:51		fifo: pipe chiusa
+2019-10-11 15:20:51		perl: script scaricati
+2019-10-11 15:20:51		URL server stopped
+2019-10-11 15:20:51		python: script scaricati
