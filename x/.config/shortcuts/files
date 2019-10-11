@@ -3,7 +3,7 @@
 bf	~/.config/shortcuts/files
 bd	~/.config/shortcuts/directories
 cfb	~/.bashrc
-cfa	~/.config/shortcuts/aliasrc
+cfa	~/.config/shortcuts/aliases
 cfz	~/.config/zsh/.zshrc
 cfv	~/.config/nvim/init.vim
 cfk	~/.config/sxhkd/sxhkdrc
