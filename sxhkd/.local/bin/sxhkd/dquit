@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Power off menu
+
+prompt() { printf "$1" | dmenu -i -p "$2" ;}
+
+option=$(prompt "Quit Xorg\\nReboot\\nShutdown")
+
+case $option in
+	"Quit Xorg") dprompt "Quit Xorg?" "killall Xorg" ;;
+	"Reboot") dprompt "Reboot?" "sudo -A reboot" ;;
+	"Shutdown") dprompt "Shutdown?" "sudo -A shutdown now" ;;
+esac
+
+

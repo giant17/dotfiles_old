@@ -36,3 +36,7 @@ octave/.config/octave/qt-settings
 transmission/.config/transmission-daemon/stats.json
 vim/.config/nvim/snippets/
 cmus/.config/cmus/lib.pl
+cmus/.config/cmus/search-history
+vifm/.config/vifm/vifminfo_943
+calcurse/.config/calcurse/.calcurse.pid
+qutebrowser/.config/qutebrowser/qsettings/

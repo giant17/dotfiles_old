@@ -1,0 +1,18 @@
+# vim: filetype=sh
+
+bf	~/.config/shortcuts/files
+bd	~/.config/shortcuts/directories
+cfb	~/.bashrc
+cfa	~/.config/shortcuts/aliasrc
+cfz	~/.config/zsh/.zshrc
+cfv	~/.config/nvim/init.vim
+cfk	~/.config/sxhkd/sxhkdrc
+cfn	~/.config/newsboat/config
+cfl	~/.config/lf/lfrc
+
+cfm	~/.config/mutt/muttrc
+# eb	~/Documents/LaTeX/uni.bib
+# cv	~/Documents/LaTeX/cv.tex
+# cfd	~/.Xdefaults
+cfu	~/.config/newsboat/urls
+eb	~/.local/share/latex/bibliography.bib
