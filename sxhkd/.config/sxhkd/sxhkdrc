@@ -4,23 +4,28 @@ super + d
 	dmenu_run
 # music
 super + m
-	$TERMINAL -e launchTmux 'music' 'cmus'
+	$TERMINAL -e startTmux 'music' 'cmus'
 
 # browser cli
 super + w
-	$TERMINAL -e launchTmux 'web' 'w3m -config $HOME/.config/w3m/config -v'
+	$TERMINAL -e startTmux 'web' 'w3m -config $HOME/.config/w3m/config -v'
 
 # Browser gui
 super + shift + w
 	$BROWSER
 
-# calendar
+# Inbox
 super + y
-	$TERMINAL -e launchTmux 'calendar' 'calcurse -D $HOME/.config/calcurse'
+	addinbox
+
+
+# calendar
+super + shift  + y
+	$TERMINAL -e startTmux 'calendar' 'calcurse -D $HOME/.config/calcurse -c $HOME/.local/share/calcurse/apts'
 
 # rss
 super + n
-	$TERMINAL -e newsboat
+	$TERMINAL -e newsboat -u $HOME/.local/share/newsboat/urls
 
 # file manager
 super + r
@@ -32,25 +37,18 @@ super + e
 
 # Matlab
 super + shift + m
-	$TERMINAL -e launchTmux 'matlab' "vifm $REPOS/matlab"
+	$TERMINAL -e startTmux 'matlab' "lf $REPOS/matlab"
 
 # Brainstorm
 super + b
 	tmuxBrainstorm
 
-## MANAGEMENT
-
-# Inbox
-super + y; y
-	addinbox
-
-# Process
-super + y; p
-	processinbox
-
+# Slock
+super + shift + x
+	slock
 
 super  + F1
-	new_app.sh
+	checkstatusgit --dmenu
 
 # GTD shortcuts
 super + y; p
@@ -73,15 +71,15 @@ super + v
 super + F6
 	torwrap.sh
 super + shift + Escape
-	quitMenu.sh
+	dquit
 # super + grave; e
 # 	rofimoji
 super + grave
 	getFontawesome.sh
 super + F9
-	mount.sh
+	mount
 super + F10
-	unmount.sh
+	unmount
 super + Print
 	record.sh
 # Thinkpad german Druck
@@ -90,18 +88,18 @@ shift + Print
 super + F2
 	monitor.sh --auto
 super + F3
-	monitor.sh --manual
+	displayselect
 super + F12
 	$TERMINAL -e nmtui
 
 # Volume
 
 XF86AudioMute
-	lmc.sh mute
+	lmc mute
 XF86AudioLowerVolume
-	lmc.sh down
+	lmc down 5
 XF86AudioRaiseVolume
-	lmc.sh up
+	lmc up 5
 
 XF86MonBrightnessDown
 	xbacklight -dec 15

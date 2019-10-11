@@ -136,7 +136,8 @@ keymap gT NULL
 keymap ESC-t NULL
 keymap C-wL NULL
 keymap C-wH NULL
-#keymap a NULL
+keymap a NULL
+keymap a EXTERN_LINK 'TS_SOCKET=/tmp/w3m tsp wget -c -P ~/dl'
 keymap n NULL
 keymap N NULL
 keymap / NULL
@@ -189,11 +190,11 @@ keymap yf       EXTERN_LINK 'env printf %s "$0" | xsel -b'
 keymap p 	GOTO		/usr/lib/w3m/cgi-bin/goto_clipboard.cgi
 #follow link in clipboard in new foreground tab.
 keymap P        TAB_GOTO	/usr/lib/w3m/cgi-bin/goto_clipboard.cgi
-keymap F        TAB_LINK					#Follow link in a new foreground tab
+keymap F        TAB_LINK
 #follow link under cursor in new background tab
 #keymap    COMMAND   "TAB_LINK ; PREV_TAB"
-keymap f        GOTO_LINK					#Follow link in current tab
-keymap C-j      GOTO_LINK					#Follow link (Enter = Ctrl+j)
+keymap f        GOTO_LINK
+keymap C-j      GOTO_LINK
 
 #scrolling....................................................................
 #pager-like scrolling.

@@ -35,3 +35,4 @@ cmus/.config/cmus/command-history
 octave/.config/octave/qt-settings
 transmission/.config/transmission-daemon/stats.json
 vim/.config/nvim/snippets/
+cmus/.config/cmus/lib.pl

@@ -11,20 +11,21 @@ call plug#begin('~/.config/nvim/plugged')
 " Testing
 Plug 'vifm/vifm.vim'
 Plug 'neomake/neomake'
-
+Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'jreybert/vimagit', {'on': ['Magit', 'MagitOnly']}
-Plug 'vimwiki/vimwiki' , {'on': ['VimwikiIndex', 'VimwikiMakeDiaryNote'] }
+Plug 'vimwiki/vimwiki'
 Plug 'daeyun/vim-matlab'
 Plug 'yinflying/matlab.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
-
+Plug 'ptzz/lf.vim'
 call plug#end()
 
 " }}}
@@ -34,9 +35,22 @@ call plug#end()
 call neomake#configure#automake('w')
 
 " Vifm
-nnoremap - :Vifm<CR>
+nnoremap - :Lf<CR>
+nnoremap _ :vs<CR>:Lf<CR>
+
+autocmd FileType tex,markdown,vimwiki nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>M :Magit<CR>
+
+set termguicolors
+
+call togglebg#map("<F5>")
+
+
+autocmd BufWritePost ~/.config/shortcuts/directories,~/.config/shortcuts/files !shortcuts
+
 " }}}
 " GENERAL {{{
+let mapleader =","
 syntax enable						" Syntax detection TODO polyglot
 filetype plugin on				" Filetype detection
 set nocompatible				" Allow non user vim
@@ -76,17 +90,18 @@ nnoremap S :%s//g<Left><Left>
 " }}}
 " APPEARANCE {{{
 
-set background=dark
-colorscheme solarized
-
 set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
-
+colorscheme gruvbox
 " Cursor
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
+
+
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ }
+
+
 " }}}
 " NAVIGATION {{{
 set splitbelow splitright 	" Split open at the bottom and right
@@ -155,10 +170,6 @@ autocmd BufRead bspwm_sxhkd set filetype=sxhkd
 
 " Goyo
 map <leader>f :Goyo \| set linebreak<cr>
-
-" Goyo in Neomutt
-autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 " }}}
 " MATLAB {{{
 
@@ -171,7 +182,7 @@ autocmd FileType matlab nnoremap <buffer>,c :MatlabLaunchServer<cr>
 autocmd FileType matlab vnoremap <buffer><silent><C-c><C-c> <ESC>:MatlabCliRunSelection<CR>
 autocmd FileType matlab nnoremap <buffer><silent><C-c><C-c> <ESC>:MatlabCliRunCell<CR>
 autocmd FileType matlab nnoremap <buffer><silent>,s :MatlabCliRunLine<CR>
-autocmd FileType matlab nnoremap <buffer><silent><C-c><C-l> :MatlabNormalModeCreateCell
+autocmd FileType matlab nnoremap <buffer><silent><C-c><C-l> :MatlabNormalModeCreateCell<CR>
 autocmd FileType matlab nnoremap <buffer><silent>,h <ESC>:MatlabCliHelp<CR>
 
 
@@ -255,3 +266,6 @@ autocmd FileType matlab setlocal commentstring=%\ %s
 "" }}}
 " }}}
 " vim: set fdm=marker fmr={{{,}}} fdl=0 :
+
+
+
