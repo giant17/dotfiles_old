@@ -4,13 +4,15 @@ dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-setbg &
+# setbg &
+xsetroot -solid "#282828" &
 sxhkd &
-setxkbmap it -option caps:escape && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+setxkbmap it -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
 xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 300 50 &
 unclutter &
-xcompmgr &
+redshift -P -O 3600 &
+#xcompmgr &
 dunst &
 slstatus &
 

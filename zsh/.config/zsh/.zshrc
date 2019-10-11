@@ -61,7 +61,7 @@ lfcd () {
 
 vifmcd () {
     tmp="$(mktemp)"
-    vifm --choose-dir="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -75,7 +75,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/shortcuts/shortcutrc" ] && source "$HOME/.config/shortcuts/shortcutrc"
 [ -f "$HOME/.config/shortcuts/aliases" ] && source "$HOME/.config/shortcuts/aliases"
 
 # Functions
