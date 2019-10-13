@@ -88,12 +88,12 @@ super + F9
 super + F10
 	unmount
 super + Print
-	record.sh
+	record
 # Thinkpad german Druck
 shift + Print
-	maimpick.sh
+	maimpick
 super + F2
-	monitor.sh --auto
+	monitor --auto
 super + F3
 	displayselect
 super + F12

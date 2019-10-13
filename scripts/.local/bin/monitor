@@ -24,7 +24,7 @@ autoMonitor() {
 
 setMonitor() {
 	xrandr --output "$1" --primary --auto --scale 1.0x1.0 $(echo "$allposs" | grep -v "$1" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ')
-	reload.sh
+	reload
 	notify-send " Monitor set" "$1" -t 1000
 }
 
