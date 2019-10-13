@@ -53,6 +53,9 @@ super + shift + x
 super  + F1
 	checkstatusgit --dmenu
 
+super + shift + F1
+	getinfo
+
 # GTD shortcuts
 super + y; p
 	process.sh
