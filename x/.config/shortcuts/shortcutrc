@@ -20,5 +20,5 @@ cfk="$EDITOR ~/.config/sxhkd/sxhkdrc" \
 cfn="$EDITOR ~/.config/newsboat/config" \
 cfl="$EDITOR ~/.config/lf/lfrc" \
 cfm="$EDITOR ~/.config/mutt/muttrc" \
-cfu="$EDITOR ~/.config/newsboat/urls" \
+cfu="$EDITOR ~/.local/share/newsboat/urls" \
 eb="$EDITOR ~/.local/share/latex/bibliography.bib" \

@@ -78,7 +78,8 @@ super + shift + Escape
 # super + grave; e
 # 	rofimoji
 super + grave
-	getFontawesome.sh
+	unicode
+	# getFontawesome.sh
 super + F9
 	mount
 super + F10

@@ -14,5 +14,5 @@ cfm	~/.config/mutt/muttrc
 # eb	~/Documents/LaTeX/uni.bib
 # cv	~/Documents/LaTeX/cv.tex
 # cfd	~/.Xdefaults
-cfu	~/.config/newsboat/urls
+cfu	~/.local/share/newsboat/urls
 eb	~/.local/share/latex/bibliography.bib

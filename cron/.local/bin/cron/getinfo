@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# TODO:Calendar
+# TODO:Emails
+
+
+day=$(date '+%D')
+time=$(date '+%H:%M')
+battery=$(cat /sys/class/power_supply/BAT0/capacity)
+volume=$(amixer sget Master | awk -F "[][]" '/%/ { print $2 }' | head -n1)
+gitrepos=$(checkstatusgit --count)
+calendar=$(calcurse -D $HOME/.config/calcurse -a | awk '/^  */' | wc -l)
+mail=$(du -a .local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')
+
+
+notify-send " $day" "  $time\\n  $battery\\n  $volume\\n  $gitrepos\\n  $calendar\\n  $mail"
