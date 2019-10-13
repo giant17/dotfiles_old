@@ -364,8 +364,8 @@ keymap  C-x  COMMAND  "SET_OPTION fold_line=toggle ; RESHAPE"
 #keymap C-v PIPE_SHELL
 
 
-keymap  xs      COMMAND       "SHELL ~/.local/bin/w3m/duckcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
-keymap  XS      COMMAND       "SHELL ~/.local/bin/w3m/surfrawcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
+keymap  xs      COMMAND       "SHELL ~/.local/bin/duckcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
+keymap  XS      COMMAND       "SHELL ~/.local/bin/surfrawcli ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
 
 
 keymap i VIEW_IMAGE
