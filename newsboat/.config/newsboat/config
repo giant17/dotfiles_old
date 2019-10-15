@@ -33,7 +33,7 @@ bind-key ^t next-unread
 color background         default   default
 color listnormal         default   default
 color listnormal_unread  default   default
-color listfocus          yellow	   default     
+color listfocus          yellow	   default
 color listfocus_unread   yellow    black
 color info               default   black
 color article            default   default
@@ -48,8 +48,8 @@ highlight article "\\[image\\ [0-9]+\\]" green default
 # macro , open-in-browser
 browser "/usr/bin/w3m %u"
 macro p set browser "handler.sh"; open-in-browser ; set browser "/usr/bin/w3m %u"
-macro t set browser "yt.sh -v %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
-macro a set browser "yt.sh -a %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
+macro t set browser "yt -v %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
+macro a set browser "yt -a %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
 macro c set browser "xsel -b <<<"; open-in-browser ; set browser "/usr/bin/w3m %u"
 macro b set browser "qutebrowser"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
 
