@@ -14,6 +14,10 @@ super + w
 super + shift + w
 	$BROWSER
 
+# Anki
+super + a
+	notify-send "Starting anki..." -t 2000; anki
+
 # Inbox
 super + y
 	addinbox

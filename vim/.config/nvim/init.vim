@@ -169,7 +169,7 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb	" Run xrdb
 autocmd BufRead bspwm_sxhkd set filetype=sxhkd
 
 " Goyo
-map <leader>f :Goyo \| set linebreak<cr>
+nnoremap <leader>f :Goyo \| set linebreak<cr>
 " }}}
 " MATLAB {{{
 
