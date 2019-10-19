@@ -39,7 +39,6 @@ nnoremap - :Lf<CR>
 nnoremap _ :vs<CR>:Lf<CR>
 
 autocmd FileType tex,markdown,vimwiki nnoremap <F8> :TagbarToggle<CR>
-nnoremap <leader>M :Magit<CR>
 
 set termguicolors
 
@@ -268,4 +267,5 @@ autocmd FileType matlab setlocal commentstring=%\ %s
 " vim: set fdm=marker fmr={{{,}}} fdl=0 :
 
 
+nnoremap <leader>M :Magit<CR>
 
