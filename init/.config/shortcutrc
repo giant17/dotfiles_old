@@ -8,4 +8,5 @@ bd="$EDITOR ~/.config/directories" \
 cfb="$EDITOR ~/.bashrc" \
 cfa="$EDITOR ~/.config/aliases" \
 cfv="$EDITOR ~/.config/nvim/init.vim" \
+cft="$EDITOR ~/.tmux.conf" \
 eb="$EDITOR ~/.local/share/latex/bibliography.bib" \

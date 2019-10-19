@@ -3,5 +3,6 @@
 alias v="nvim" \
 	g="git" \
 	ls="ls --color=auto" \
-	
+	mg="nvim -c MagitOnly" \
+
 
