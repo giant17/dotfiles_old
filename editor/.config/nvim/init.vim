@@ -25,7 +25,7 @@ syntax enable
 filetype plugin on
 set nocompatible
 set wildmode=longest,list,full
-set tabstop=4	
+set tabstop=4
 set shiftwidth=4
 set go=a
 set mouse=a
@@ -67,7 +67,7 @@ set noshowmode
 " autocmd InsertEnter * set cul
 " autocmd InsertLeave * set nocul
 
-let g:lightline = { 'colorscheme': 'wombat' }
+let g:lightline = { 'colorscheme': 'deus' }
 
 
 set splitbelow splitright 	" Split open at the bottom and right
@@ -129,24 +129,15 @@ autocmd FileType matlab setlocal commentstring=%\ %s
 
 
 
-
-
-
-
-
-
-
-
-
 " Latex
 
 	nnoremap ,latex :-1read $HOME/.local/share/templates/latex.tex<CR>
-	
-	
+
+
 	autocmd FileType bib inoremap ,a @article{<Enter>author<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>journal<Space>=<Space>{<++>},<Enter>volume<Space>=<Space>{<++>},<Enter>pages<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>8kA,<Esc>i
 	autocmd FileType bib inoremap ,b @book{<Enter>author<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>publisher<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>6kA,<Esc>i
 	autocmd FileType bib inoremap ,c @incollection{<Enter>author<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>booktitle<Space>=<Space>{<++>},<Enter>editor<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>publisher<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>8kA,<Esc>i
-	
+
 	" Word count:
 	autocmd FileType tex map <leader>w :w !detex \| wc -w<CR>
 	" Code snippets
