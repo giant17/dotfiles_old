@@ -1,0 +1,12 @@
+# vim: filetype=sh
+
+bf	~/.config/files
+bd	~/.config/directories
+cfb	~/.bashrc
+cfa	~/.config/aliases
+cfv	~/.config/nvim/init.vim
+
+
+
+
+eb	~/.local/share/latex/bibliography.bib

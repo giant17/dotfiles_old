@@ -1,0 +1,6 @@
+# vim: filetype=sh
+
+D	~/dl
+r	~/repos
+x	~/repos/linux
+xd	~/repos/linux/dotfiles

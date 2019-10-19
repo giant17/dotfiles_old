@@ -1,0 +1,7 @@
+#!/bin/sh
+
+alias v="nvim" \
+	g="git" \
+	ls="ls --color=auto" \
+	
+

@@ -1,0 +1,11 @@
+# vim: filetype=sh
+alias D="cd ~/dl && ls -a" \
+r="cd ~/repos && ls -a" \
+x="cd ~/repos/linux && ls -a" \
+xd="cd ~/repos/linux/dotfiles && ls -a" \
+bf="$EDITOR ~/.config/files" \
+bd="$EDITOR ~/.config/directories" \
+cfb="$EDITOR ~/.bashrc" \
+cfa="$EDITOR ~/.config/aliases" \
+cfv="$EDITOR ~/.config/nvim/init.vim" \
+eb="$EDITOR ~/.local/share/latex/bibliography.bib" \
