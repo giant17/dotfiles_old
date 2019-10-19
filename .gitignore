@@ -45,3 +45,8 @@ editor/.config/nvim/.netrwhist
 editor/.config/nvim/autoload/
 editor/.config/nvim/plugged/
 browser/.mozilla/firefox/Crash Reports/
+music/.config/cmus/cache
+music/.config/cmus/command-history
+music/.config/cmus/lib.pl
+music/.config/cmus/playlist.pl
+music/.config/cmus/search-history
