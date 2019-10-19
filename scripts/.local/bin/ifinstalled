@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Return error and notify if command not available
-
-for var in "$@"; do
-	command -v "$var" >/dev/null || { notify-send " $var" "must be installed for this function." && exit 1 ;}
-done

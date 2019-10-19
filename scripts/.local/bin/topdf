@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Download url as PDF
-
-#printf "%s" "$1" | xsel -b
-tsp notify-send "Download started" "$1" -t 1000
-tsp wkhtmltopdf "$1" "$(echo "$1" | sed -e 's/https\?:\/\///' -e 's/\//-/g' ).pdf"
-tsp notify-send "Download complete" "$1" -t 1000

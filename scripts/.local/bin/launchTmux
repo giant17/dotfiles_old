@@ -1,7 +1,0 @@
-#!/bin/sh
-
-tmuxSessions=$(tmux ls | awk '{print $1}' | sed 's|:| |g')
-
-chosen=$(printf "$tmuxSessions" | dmenu -l 10 -p "Choose a tmux session:")
-
-$TERMINAL -e tmux at -t $chosen
