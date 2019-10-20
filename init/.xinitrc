@@ -8,6 +8,7 @@ xsetroot -solid "#282828" &
 setxkbmap it -option caps:escape &
 xset r rate 300 50 &
 hhpc &
+xcompmgr &
 dunst &
 
 exec dwm

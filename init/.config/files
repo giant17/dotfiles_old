@@ -6,6 +6,8 @@ cfb	~/.bashrc
 cfa	~/.config/aliases
 cfv	~/.config/nvim/init.vim
 cft	~/.tmux.conf
+cfwk	~/.w3m/keymap
+cfwc	~/.w3m/config
 
 
 
