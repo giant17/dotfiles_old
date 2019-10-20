@@ -4,3 +4,4 @@ D	~/dl
 r	~/repos
 x	~/repos/linux
 xd	~/repos/linux/dotfiles
+sc	~/.local/bin
