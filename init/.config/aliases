@@ -5,5 +5,14 @@ alias v="nvim" \
 	ls="ls --color=auto" \
 	mg="nvim -c MagitOnly" \
 	pa="pulsemixer" \
+	news="newsboat -u $HOME/.local/share/newsboat/urls" \
+	bat="cat /sys/class/power_supply/BAT0/capacity" \
+	stx="starttmux" \
+	ms="starttmux music cmus" \
+	ww="starttmux web 'w3m -v'" \
+	cal="starttmux calendar calcurse" \
+	m="starttmux matlab 'lf $REPOS/matlab'" \
+	wk="nvim -c VimwikiIndex" \
+	cg="checkstatusgit --dmenu" \
 
 
