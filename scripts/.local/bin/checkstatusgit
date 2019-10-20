@@ -1,0 +1,30 @@
+#!/bin/sh
+
+repos=$(find $REPOS -maxdepth 2 -mindepth 2 -type d)
+
+
+getstatusrepos() {
+	for repo in $repos; do
+		if [ -z "$(git -C "$repo" status --porcelain)" ]; then
+			continue
+		else
+			echo $repo
+		fi
+	done
+}
+
+dmenustatus() {
+	x=$(printf "$(getstatusrepos)")
+	chosen=$(printf "$x" | dmenu -i -l 10 -p "Choose a repository:")
+	$TERMINAL -e nvim -c MagitOnly $chosen
+}
+
+countstatus() {
+	getstatusrepos | wc -l
+}
+
+case "$1" in
+	"--dmenu") dmenustatus;;
+	"--count") countstatus;;
+esac
+
