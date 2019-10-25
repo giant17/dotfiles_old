@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+mbsync -a

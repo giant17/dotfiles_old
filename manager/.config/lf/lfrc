@@ -44,7 +44,7 @@ cmd delete ${{
 cmd moveto ${{
 	set -f
 	clear; echo "Move to where?"
-	dest="$(cut -d'	' -f2- ~/.config/shortcuts/directories | fzf)" &&
+	dest="$(cut -d'	' -f2- ~/.config/directories | fzf)" &&
 	eval mv -iv $fx $dest &&
 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
 }}
@@ -52,7 +52,7 @@ cmd moveto ${{
 cmd copyto ${{
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(cut -d'	' -f2- ~/.config/shortcuts/directories | fzf)" &&
+	dest="$(cut -d'	' -f2- ~/.config/directories | fzf)" &&
 	eval cp -ivr $fx $dest &&
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
@@ -65,7 +65,7 @@ cmd detox ${{
 cmd movetodir ${{
 	set -f
 	clear; echo "Move to where?"
-	dest="$(fdfind -t d | fzf)" &&
+	dest="$(find -t d | fzf)" &&
 	eval mv $fx $dest &&
 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
 }}
@@ -82,15 +82,50 @@ cmd extract ${{
     esac
 }}
 
+cmd perms ${{
+	set -f
+	eval chmod --reference ~/.bash_history $f
+}}
+
+cmd bulk-rename ${{
+        index=$(mktemp /tmp/lf-bulk-rename-index.XXXXXXXXXX)
+        if [ -n "${fs}" ]; then
+                echo "$fs" > $index
+        else
+                echo "$(ls "$(dirname $f)" | tr ' ' "\n")" > $index
+        fi
+        index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
+        cat $index > $index_edit
+        $EDITOR $index_edit
+        if [ $(cat $index | wc -l) -eq $(cat $index_edit | wc -l) ]; then
+                max=$(($(cat $index | wc -l)+1))
+                counter=1
+                while [ $counter -le $max ]; do
+                        a="$(cat $index | sed "${counter}q;d")"
+                        b="$(cat $index_edit | sed "${counter}q;d")"
+                        counter=$(($counter+1))
+
+                        [ "$a" = "$b" ] && continue
+                        [ -e "$b" ] && echo "File exists: $b" && continue
+                        mv "$a" "$b"
+                done
+        else
+                echo "Number of lines must stay the same"
+        fi
+        rm $index $index_edit
+}}
+
+
+
 # Bindings
 map se extract
 map sg !nvim -c MagitOnly $f
-map c $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/shortcuts/directories | fzf)"
-map J $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/shortcuts/directories | fzf)"
-map O $lf -remote "send $id open $(cut -d' 	' -f2 ~/.config/shortcuts/files | fzf)"
+map c $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/directories | fzf)"
+map J $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/directories | fzf)"
+map O $lf -remote "send $id open $(cut -d' 	' -f2 ~/.config/files | fzf)"
 map o $lf -remote "send $id select $(ls -a | fzf)"
 map l open
-map <c-r> !bulkrename "$fx"
+map <c-r> bulk-rename "$fx"
 map X detox
 map D trash
 map gh
@@ -103,4 +138,4 @@ map R reload
 map a push %mkdir<space>
 map r push :rename<space>
 map <enter> shell
-map x $$f
+map x perms

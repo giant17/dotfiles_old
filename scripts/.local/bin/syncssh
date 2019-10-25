@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Allow to keep in sync laptop and desktop throught ethernet cable
+
+LAPTOPSSH="10.0.0.10"
+
+ping -q -c 1 $LAPTOPSSH > /dev/null || exit
+
+echo "There is a connection."
+
+# Rsync Throught
+
+laptopdata="gian@$LAPTOPSSH:/home/gian"
+
+
+# From laptop
+rsync -avP "$laptopdata/[a-z]*" ~
+
+# From PC
+rsync -avP ~/[a-z]* "$laptopdata"

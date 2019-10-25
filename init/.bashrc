@@ -21,7 +21,10 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 # TODO: Check ttymaps
 #sudo -n loadkeys ~/.local/share/ttymaps.kmap 2>/dev/null
 
+export REPOS="$HOME/repos"
+
 export EDITOR="nvim"
+export BROWSER="firefox"
 
 
 export PATH="$PATH:$HOME/.local/bin"

@@ -1,7 +1,15 @@
-# vim: filetype=sh
-
+h	~
 D	~/dl
+d	~/dox
+p	~/dox/papers
+b	~/dox/books
+dw	~/dox/web
 r	~/repos
 x	~/repos/linux
 xd	~/repos/linux/dotfiles
+wr	~/repos/writings
 sc	~/.local/bin
+mn	/mnt
+mnu	/mnt/usb
+tt	~/.local/share/trash
+gd	~/.local/share/gdrive

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Select a tmux session and connect to it
+
+sessions=$(tmux ls | awk '{print $1}' | sed 's|:| |g')
+chosenSession=$(printf "$sessions" | dmenu -i -p "Choose an open session:")
+$TERMINAL -e tmux attach -t $chosenSession
+

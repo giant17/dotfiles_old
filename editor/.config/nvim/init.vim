@@ -4,6 +4,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	silent !mkdir -p ~/.config/nvim/autoload/
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
+	autocmd VimEnter * UpdateRemotePlugins
 endif
 
 
@@ -15,11 +16,17 @@ Plug 'yinflying/matlab.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'ptzz/lf.vim'
+Plug 'vim-scripts/TaskList.vim'
 call plug#end()
 
-
+" Lf
+nnoremap - :Lf<CR>
+nnoremap _ :vs<CR>:Lf<CR>
+" TODO: Disable Visual mode
 let mapleader =","
 syntax enable
 filetype plugin on
@@ -106,8 +113,8 @@ autocmd VimLeave *.tex !texclear %
 
 " Filetypes tex
 autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd FileType tex set complete+=kspell
-autocmd FileType tex setlocal spell
+" autocmd FileType tex set complete+=kspell
+" autocmd FileType tex setlocal spell
 
 " Goyo
 map <leader>f :Goyo \| set linebreak<cr>

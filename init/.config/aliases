@@ -15,6 +15,7 @@ alias v="nvim" \
 	wk="nvim -c VimwikiIndex" \
 	cg="checkstatusgit --dmenu" \
 	gp="git push origin" \
-	scim="sc-im"
+	scim="sc-im" \
+	kl="killall"
 
 

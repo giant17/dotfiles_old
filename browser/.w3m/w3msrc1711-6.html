@@ -1,0 +1,887 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1;">
+  <meta name="referrer" content="origin">
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>&quot;bulkrename&quot; script at DuckDuckGo</title>
+  <link title="DuckDuckGo (Lite)" type="application/opensearchdescription+xml" rel="search" href="/opensearch_lite.xml">
+  <link href="/favicon.ico" rel="shortcut icon" />
+  <link rel="apple-touch-icon" href="/assets/logo_icon128.v101.png">
+  <link rel="image_src" href="/assets/logo_homepage.normal.v101.png"/>
+
+  <style type="text/css">
+    html {
+      font-family: 'Helvetica Neue','Segoe UI', Arial, sans-serif;
+    }
+    .header {
+      font-size: 32px;
+      font-weight: bold;
+      color: #dc5e47;
+      height: 32px;
+      line-height: 32px;
+    }
+    .extra {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 1.3em;
+    }
+    #end-spacer {
+      height: 10em;
+    }
+    body {
+      padding-left: 20px;
+      width: 90%;
+      margin-top: 0;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th, td {
+      margin: 0;
+      padding: 0;
+      font-size: 107.1%;
+    }
+    
+    span.no-results {
+      font-size: 110%;
+    }
+    .query {
+      height: 28px;
+      border-color: #dc5e47;
+      border-style: solid solid solid solid;
+      border-width: 1px 1px 1px 1px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      font-size: 20px;
+      padding: 5px 6px;
+      text-align: left;
+      width: 55%; 
+      max-width: 600px;
+    }
+    .submit {
+      padding-left: 7px;
+      padding-right: 7px;
+      height: 40px;
+      font-size: 16px;
+    /*
+      color: white;
+      background-color: #019801;
+      border-style: none none none;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      padding: 5px 6px;
+    */
+      cursor: pointer;
+    }
+    .link-text {
+      color: #662200;
+      font-size: 77.4%;
+    }
+    .result-link {
+      font-size: 107.1%;
+    }
+    .result-snippet {
+      font-size: 77.4%;
+    }
+
+    .result-sponsored:hover {
+      background: #eae3ad !important;
+    }
+
+    .result-sponsored {
+      background: #fff7d0;
+      border: 1px solid #fef9eb !important;
+    }
+
+    .did-you-mean {
+      color: #EE4444;
+      font-size: 107.1%;
+    }
+    a {
+      text-decoration: none;
+      color: #1168CC;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #6830BB;
+    }
+    .timestamp {
+      color:#555555;
+      font-size: 77.4%;
+    }
+    .navbutton {
+      background-color:transparent;
+      border: 0px none;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:bold;
+      text-decoration: underline;
+      color: #1168CC;
+      border-bottom: 1px solid transparent;
+      padding: 0px;
+    }
+
+    .results--powered {
+      color: #888;
+      display: inline;
+      margin-left: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .results--powered a {
+      color: #888;
+      font-size: 13px;
+    }
+    .results--powered__badge {
+      vertical-align: baseline;
+    }
+    .badge--yahoo {
+      background-image: url("/assets/attribution/yahoo.v103.png");
+      background-size: 55px 13px;
+      width: 55px;
+      height: 13px;
+    }
+    .badge, .results--powered__badge {
+      text-indent: -999999px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    .next_form {
+      float: left;
+    }
+    .prev_form {
+      float: left;
+    }
+
+    .filters {
+      margin-top: 10px;
+    }
+
+    @media only screen and (max-device-width: 700px) {
+      body {
+        width: 95%;
+        margin-left: 10px;
+        padding: 0;
+      }
+      .query {
+        width: 180px;
+        font-size: 12px;
+      }
+      .submit {
+        font-size: 12px;
+      }
+    }
+
+
+    @media only screen and (max-device-width: 701px) and (orientation:landscape) 
+    {
+      .query {
+        width: 273px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+<p class='extra'>&nbsp;</p>
+<div class="header">DuckDuckGo</div>
+<p class='extra'>&nbsp;</p>
+
+<form action="/lite/" method="post">
+  <input class='query' type="text" size="40" name="q" value="&quot;bulkrename&quot; script" >
+  <input class='submit' type="submit" value="Search" >
+    
+    
+    
+    
+    
+
+
+  <input name="kl" value="us-en" type="hidden">
+    
+    
+</form>
+
+
+  <p class="extra">&nbsp;</p>
+    <table border="0"><tr>
+    <td>
+      
+    </td>
+    <td>
+      
+        <form action="/lite/" method="post">
+          <!-- <a rel="next" href="/lite/?q=%22bulkrename%22+script&amp;v=l&amp;l=us-en&amp;p=-1&amp;s=30&amp;ex=-1&amp;o=json&amp;ct=IT&amp;ss_mkt=us&amp;sp=0&amp;vqd=3-205339832800608459406831128379620236890-12800737866080637858843445894643847709&amp;dc=14&amp;api=%2Fd.js">Next Page &gt;</a> //-->
+          <input type="submit" class='navbutton' value="Next Page &gt;">
+          <input type="hidden" name="q" value="&quot;bulkrename&quot; script">
+          <input type="hidden" name="s" value="30">
+          <input type="hidden" name="nextParams" value="">
+          <input type="hidden" name="v" value="l">
+          <input type="hidden" name="o" value="json">
+          <input type="hidden" name="dc" value="14">
+          <input type="hidden" name="api" value="/d.js">
+              
+              
+          
+          <input name="kl" value="us-en" type="hidden">
+              
+              
+              
+              
+              
+        </form>
+      
+    </td>
+    </tr></table>
+
+
+
+
+<p class='extra'>&nbsp;</p>
+
+<table border="0">
+
+</table>
+
+<table border="0">
+
+<!-- Web results are present -->
+
+
+
+
+
+ <tr>
+
+    <td valign="top">1.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fgithub.com%2FJim%2DShaddix%2Fbulkrename" class='result-link'>GitHub - Jim-Shaddix/<b>bulkrename</b>: <b>Bulk</b> <b>rename</b> files ...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      <b>Bulkrename</b>. This <b>script</b> provides a command line tool that is called through the command <b>bulkrename</b>. This tool allows you to refactor files, similar to how the <b>bulkrename</b> command works in the file manager ranger.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>github.com/Jim-Shaddix/bulkrename</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">2.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=http%3A%2F%2Freboot.pro%2Ftopic%2F5445%2Dbulk%2Drename%2Dutility%2Dv2703%2F" class='result-link'><b>Bulk</b> <b>Rename</b> Utility v.2.7.0.3 - App <b>Scripts</b> - reboot.pro</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      Nuno and amalux: For right click under x64, a devoloper should write a new .dll file, <b>bulkrename</b> have right click support to x64 (with different .dll) too but it is not the issue, also xnview and ntfs link add right click to livexp successfully (which are x86 dll files), As i use x64 all the time i will solve it in the end (slowly) and report it nicely documented .
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>reboot.pro/topic/5445-bulk-rename-utility-v2703/</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">3.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fgithub.com%2FConX%2Fbulkrename.py" class='result-link'>GitHub - ConX/<b>bulkrename</b>.py: A python <b>script</b> to rename all ...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      GitHub - ConX/<b>bulkrename</b>.py: A python <b>script</b> to rename all the files in a directory using a certain pattern. A python <b>script</b> to rename all the files in a directory using a certain pattern.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>github.com/ConX/bulkrename.py</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">4.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fgithub.com%2FAlexFlipnote%2Fbulkrename" class='result-link'>GitHub - AlexFlipnote/<b>bulkrename</b>: Rename multiple files in a ...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      Join GitHub today. GitHub is home to over 36 million developers working together to host and review code, manage projects, and build software together.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>github.com/AlexFlipnote/bulkrename</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">5.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F11350606%2Fbatch%2Dscript%2Dto%2Drename%2Dfiles" class='result-link'>vbscript - Batch <b>Script</b> to Rename Files - Stack Overflow</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      Batch <b>Script</b> to Rename Files. Ask Question Asked 7 years ... I have looked thoroughly to find a <b>script</b> that can do this, as I know the question has already been asked...but I understand very little about programming. ... <b>BulkRename</b> is an other app which can do this. +1 for renaming files an ...
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>stackoverflow.com/questions/11350606/batch-script-to-rename-files</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">6.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fwww.reddit.com%2Fr%2Flinuxquestions%2Fcomments%2Fcfoby6%2Fany_standalone_program_like_rangers_bulkrename%2F" class='result-link'>Any standalone program like ranger&#x27;s <b>bulkrename</b>? - reddit.com</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      Man, on the past I have the <b>script</b>. Just do ls | <b>bulkrename</b>.sh and it works the frickin exact same way as Ranger&#x27;s <b>bulkrename</b> (I feel like the guy who wrote it just translate Ranger&#x27;s <b>bulkrename</b> command into bash <b>script</b>), I love that <b>script</b>, but I&#x27;ve been searching and can&#x27;t find it anymore.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>www.reddit.com/r/linuxquestions/comments/cfoby6/any_standalone_program_like_rangers_bulkrename/</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">7.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Faskubuntu.com%2Fquestions%2F976368%2Fhow%2Dto%2Dremove%2Dcharacters%2Dfrom%2Dfile%2Dnames%2Dusing%2Dcommand%2Dline" class='result-link'>rename - How to remove characters from file names using ...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      How to remove characters from file names using command line? Ask Question Asked 1 year, ... I have a bunch of files needing renaming but I do not want to create a <b>script</b> for it, just a command line. ... <b>bulkrename</b> and press Enter. Step 5.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>askubuntu.com/questions/976368/how-to-remove-characters-from-file-names-using-command-line</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">8.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fwww.bulkrenameutility.co.uk%2Fforum%2Fviewtopic.php%3Ft%3D3119" class='result-link'><b>Bulk</b> <b>Rename</b> Utility • View topic - The Crop function help</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      On the side not, I actually considered using the CLI version, so I could write a <b>script</b> to remove [*], [*], (*) with 3 lines removing each of them once, only to realize after I downloaded the CLI utility that it doesn&#x27;t support the crop fuction
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>www.bulkrenameutility.co.uk/forum/viewtopic.php?t=3119</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">9.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fwww.bulkrenameutility.co.uk%2Fforum%2Fviewtopic.php%3Ft%3D1278" class='result-link'><b>Bulk</b> <b>Rename</b> Utility • View topic - Change folder modified to ...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      Well , The topic says it all. Can <b>Bulk</b> <b>Rename</b> help me in that. Maybe its a feature that can be looked into for future releases. Although <b>bulkrename</b> mostly is meant for files, my requirement is about folders, based on the method of organizing the file collection.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>www.bulkrenameutility.co.uk/forum/viewtopic.php?t=1278</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">10.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fwww.bulkrenameutility.co.uk%2Fforum%2Fviewtopic.php%3Ft%3D3076" class='result-link'>View topic - <b>Bulk</b> <b>Rename</b> Utility</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      One possibility is that prior to installing <b>BulkRename</b> I had changed the target folder and set some switches in the File Explorer properties dialog to get it to open in a custom folder when it started up. I reset these settings back to the default ones which may have affected something. Hopefully no one else has this problem.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>www.bulkrenameutility.co.uk/forum/viewtopic.php?t=3076</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">11.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=http%3A%2F%2Fthepaulrayner.com%2Fpresentations%2Fgrug201303%2F" class='result-link'>Using Cucumber to Build Console Applications Test-First</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      It would also be prudent to ensure that our <b>bulkrename</b> <b>script</b> is not going to overwrite a file if it already exists, so let&#x27;s create a new @wip scenario for that (don&#x27;t forget to remove the @wip tag from the previous scenario): Update <b>Bulkrename</b>.
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>thepaulrayner.com/presentations/grug201303/</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">12.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fwww.advancedrenamer.com%2Fforum_thread%3Fforum_id%3D4023" class='result-link'>Advanced Renamer - Forum - List Replace from a text file?</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      A renaming pair text file can be used with <b>bulkrename</b> (another rename utility) but to have also a part of the filename to stay intact, I don&#x27;t see any other way but to make a custom <b>script</b> outside of AR. If anybody has a way, I would like to know too..
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>www.advancedrenamer.com/forum_thread?forum_id=4023</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+ <tr>
+
+    <td valign="top">13.&nbsp;</td>
+    <td>
+
+    
+        <a rel="nofollow" href="/l/?kh=-1&amp;uddg=https%3A%2F%2Fsocial.msdn.microsoft.com%2FForums%2Fen%2DUS%2Fc256e461%2Db4f1%2D408c%2Da749%2D3f803c46faab%2Fmanaging%2Dsource%2Dtree%2Dchanges%2Dwith%2Dtfs" class='result-link'>Managing source tree changes with TFS...</a>
+    
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td class='result-snippet'>
+      To quickly move lots of files, you might want to use a <b>script</b> file. If you can produce a file that looks like: ... tf @<b>bulkrename</b>.tfc directory2 I definitely want better Move support in a future version of Source Control Explorer, too. (Currently, the Move option is disabled if you select &gt;1 file.)
+    </td>
+  </tr>
+  
+
+  
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <span class='link-text'>social.msdn.microsoft.com/Forums/en-US/c256e461-b4f1-408c-a749-3f803c46faab/managing-source-tree-changes-with-tfs</span>
+      
+    </td>
+  </tr>
+  
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+
+
+
+  
+    <tr>
+    <td colspan=2>
+      
+      
+        <form class="next_form" action="/lite/" method="post">
+          <!-- <a rel="next" href="/lite/?q=%22bulkrename%22+script&amp;v=l&amp;l=us-en&amp;p=-1&amp;s=30&amp;ex=-1&amp;o=json&amp;ct=IT&amp;ss_mkt=us&amp;sp=0&amp;vqd=3-205339832800608459406831128379620236890-12800737866080637858843445894643847709&amp;dc=14&amp;api=%2Fd.js">Next Page &gt;</a> //-->
+          <input type="submit" class='navbutton' value="Next Page &gt;">
+          <input type="hidden" name="q" value="&quot;bulkrename&quot; script">
+          <input type="hidden" name="s" value="30">
+          <input type="hidden" name="o" value="json">
+          <input type="hidden" name="dc" value="14">
+          <input type="hidden" name="api" value="/d.js">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                
+          
+          <input name="kl" value="us-en" type="hidden">
+                
+              
+                
+                
+                
+        </form>
+      
+      
+    </td>
+  </tr>
+
+</table>
+
+<p class='extra'>&nbsp;</p>
+
+<form action="/lite/" method="post">
+  <input class='query' type="text" size="40" name="q" value="&quot;bulkrename&quot; script" >
+  <input class='submit' type="submit" value="Search" >
+    
+    
+    
+    
+    
+
+
+  <input name="kl" value="us-en" type="hidden">
+    
+    
+</form>
+
+<p class='extra'>&nbsp;</p>
+
+<!--
+<a href="#top">Top</a>
+//-->
+
+
+  <img src="/t/sl_l"/>
+
+<div id='end-spacer'>&nbsp;</div>
+
+
+
+</body>
+</html>

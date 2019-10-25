@@ -1,14 +1,5 @@
 #!/bin/sh
 
-dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
-
-xsetroot -solid "#282828" &
-setxkbmap it -option caps:escape &
-xset r rate 300 50 &
-hhpc &
-xcompmgr &
-dunst &
+[ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
 exec dwm
