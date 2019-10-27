@@ -21,6 +21,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'ptzz/lf.vim'
 Plug 'vim-scripts/TaskList.vim'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 " Lf
@@ -59,7 +60,8 @@ if has("autocmd")
   endif
 
 " enable sudo
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+cnoremap w!! w suda://%<CR>
+" cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>

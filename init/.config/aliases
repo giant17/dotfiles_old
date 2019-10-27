@@ -16,6 +16,9 @@ alias v="nvim" \
 	cg="checkstatusgit --dmenu" \
 	gp="git push origin" \
 	scim="sc-im" \
-	kl="killall"
+	kl="killall" \
+	itmp="sudo mount -o remount,size=20G /tmp/"
+	YT="youtube-viewer"
+
 
 
