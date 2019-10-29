@@ -1,0 +1,11 @@
+#!/bin/sh
+
+repos="
+$HOME/repos/linux/personal
+$HOME/repos/writings/wiki
+"
+
+for repo in $repos; do
+	git -C "$repo" add . || continue
+	git -C "$repo" commit -m "$(date)" || continue
+done

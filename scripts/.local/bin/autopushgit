@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Push repos if internet connection
+
+
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+
+for repofolder in $(ls $HOME/repos); do
+	if [ "$repofolder" != "starred" ]; then
+		echo $repofolder
+		for repo in $( ls "$HOME/repos/$repofolder"); do
+			git -C "$HOME/repos/$repofolder/$repo" push origin master || continue
+		done
+	fi
+done

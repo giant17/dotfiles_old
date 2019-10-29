@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Pull repos if internet connection
+
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+
+for repo in $(ls $HOME/repos/starred); do
+	git -C "$HOME/repos/starred/$repo" pull || continue
+done
+
