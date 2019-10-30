@@ -136,8 +136,8 @@ keymap gT NULL
 keymap ESC-t NULL
 keymap C-wL NULL
 keymap C-wH NULL
-keymap a NULL
-keymap a EXTERN_LINK 'TS_SOCKET=/tmp/w3m tsp wget -c -P ~/dl'
+# keymap a NULL
+# keymap a EXTERN_LINK 'TS_SOCKET=/tmp/w3m tsp wget -c -P ~/dl'
 keymap n NULL
 keymap N NULL
 keymap / NULL

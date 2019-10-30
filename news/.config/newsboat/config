@@ -51,7 +51,7 @@ browser "/usr/bin/w3m %u"
 macro p set browser "handler.sh"; open-in-browser ; set browser "/usr/bin/w3m %u"
 # macro t set browser "yt.sh -v %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
 macro t set browser "youtube-dl %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
-macro a set browser "yt.sh -a %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
+macro a set browser "youtube-dl --extract-audio %u"; open-in-browser ; set browser "/usr/bin/w3m %u"
 macro c set browser "xsel -b <<<"; open-in-browser ; set browser "/usr/bin/w3m %u"
 macro b set browser "qutebrowser"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
 
