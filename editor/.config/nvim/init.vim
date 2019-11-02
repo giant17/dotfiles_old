@@ -20,8 +20,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'ptzz/lf.vim'
-Plug 'vim-scripts/TaskList.vim'
 Plug 'lambdalisue/suda.vim'
+Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
 " Lf
@@ -73,8 +73,8 @@ autocmd BufWritePost ~/.config/shortcuts/directories,~/.config/shortcuts/files !
 set noshowmode
 
 " TODO: Change cursor tmux
-" autocmd InsertEnter * set cul
-" autocmd InsertLeave * set nocul
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
 
 let g:lightline = { 'colorscheme': 'deus' }
 

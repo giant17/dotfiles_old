@@ -15,10 +15,12 @@ alias v="nvim" \
 	wk="nvim -c VimwikiIndex" \
 	cg="checkstatusgit --dmenu" \
 	gp="git push origin" \
-	scim="sc-im" \
 	kl="killall" \
-	itmp="sudo mount -o remount,size=20G /tmp/"
-	YT="youtube-viewer"
+	itmp="sudo mount -o remount,size=20G /tmp/" \
+	YT="youtube-viewer" \
+	xi="sudo xbps-install -S" \
+	xr="sudo xbps-remove" \
+	xu="suxo xbps-install -Su"
 
 
 

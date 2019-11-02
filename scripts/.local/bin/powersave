@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Do things to make battery life bettery
+#
+
+set -e
+
+# Disable NMI watchdog
+echo 0 > /proc/sys/kernel/nmi_watchdog
+
+# Disable WoL and the link for my ethernet device
+ethernet_dev='enp0s25'
+ethtool -s "$ethernet_dev" wol d
+ip link set "$ethernet_dev" down
+
+# VM writeback timeout
+echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
+
+# Set Devices to auto power
+echo auto | tee /sys/bus/{pci,spi,i2c}/devices/*/power/control &>/dev/null || true

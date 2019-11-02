@@ -3,7 +3,8 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export PATH="$PATH:$HOME/.local/bin"
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser --target auto"
+export TERM="xterm"
+export BROWSER="qutebrowser --target=auto"
 export BROWSERCLI="w3m"
 export READER="zathura"
 export FILE="lf"
@@ -46,7 +47,8 @@ export less_termcap_se="$(printf '%b' '[0m')"; a="${a%_}"
 export less_termcap_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export less_termcap_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
-echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+mpd >/dev/null 2>&1 &
+echo "$0" | grep "zsh$" >/dev/null && [ -f $ZDOTDIR/.zshrc ] && source "$ZDOTDIR/.zshrc"
 
 [ "$(tty)" = "/dev/tty1" ] && exec startx
 # sudo -n loadkeys ~/.config/ttymaps.kmap 2>/dev/null
